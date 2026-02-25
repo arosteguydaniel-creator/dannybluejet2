@@ -299,6 +299,13 @@ section {
   line-height: 1.5;
 }
 
+.card-price {
+  font-size: 1.4rem;
+  font-weight: 800;
+  color: var(--magenta-dark);
+  margin-top: 0.75rem;
+}
+
 /* ===================== MUSIC GENRES SECTION ===================== */
 .music-genres-layout {
   display: flex;
