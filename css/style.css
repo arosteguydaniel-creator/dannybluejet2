@@ -655,3 +655,51 @@ section {
     flex-direction: column;
   }
 }
+
+/* ===================== HERO SPLIT ===================== */
+.hero-split {
+  display: flex;
+  min-height: 80vh;
+}
+.hero-half {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  color: white;
+  transition: filter 0.2s;
+  padding: 3rem 2rem;
+  text-align: center;
+  cursor: pointer;
+}
+.hero-half:hover {
+  filter: brightness(0.85);
+}
+.hero-half-music {
+  background: var(--blue-dark);
+}
+.hero-half-store {
+  background: var(--magenta-dark);
+}
+.hero-half-icon {
+  font-size: 5rem;
+  margin-bottom: 1rem;
+}
+.hero-half-title {
+  font-size: 2.5rem;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-bottom: 0.5rem;
+}
+.hero-half-subtitle {
+  font-size: 1.1rem;
+  opacity: 0.85;
+  margin-bottom: 2rem;
+}
+@media (max-width: 600px) {
+  .hero-split { flex-direction: column; }
+  .hero-half { min-height: 40vh; }
+}
