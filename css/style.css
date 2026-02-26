@@ -53,6 +53,7 @@ body {
 .navbar-logo .logo-icon {
   font-size: 1.5rem;
   color: var(--white);
+  filter: brightness(0) invert(1);
 }
 
 .navbar-links {
