@@ -329,7 +329,7 @@ section {
 }
 
 .genres-list li::before {
-  content: '♪';
+  content: 'u266a';
   color: var(--blue-primary);
   font-size: 1.3rem;
 }
@@ -528,7 +528,7 @@ section {
 }
 
 .next-steps-card li::before {
-  content: '• ';
+  content: 'u2022 ';
   color: var(--blue-primary);
   font-weight: 700;
 }
@@ -678,6 +678,8 @@ section {
 .hero-half:hover {
   filter: brightness(0.85);
 }
+
+/* ---- Musica: video de fondo ---- */
 .hero-half-music {
   background: var(--blue-dark);
   position: relative;
@@ -685,11 +687,13 @@ section {
 }
 .hero-half-video {
   position: absolute;
-  top: 0;
-  left: 0;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: contain;
+  background: var(--blue-dark);
   z-index: 0;
 }
 .hero-half-overlay {
@@ -698,7 +702,7 @@ section {
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(30, 58, 138, 0.72);
+  background: rgba(30, 58, 138, 0.55);
   z-index: 1;
 }
 .hero-half-content {
@@ -709,12 +713,15 @@ section {
   align-items: center;
   gap: 0.5rem;
 }
+
+/* ---- Tienda: imagen de fondo ---- */
 .hero-half-store {
   background-image: linear-gradient(rgba(192, 38, 211, 0.72), rgba(192, 38, 211, 0.72)), url('../juegos1.JPG');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
 }
+
 .hero-half-icon {
   font-size: 5rem;
   margin-bottom: 1rem;
