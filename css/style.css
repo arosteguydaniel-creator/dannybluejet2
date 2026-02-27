@@ -399,7 +399,7 @@ section {
   background: var(--blue-dark);
 }
 
-.timeline-steps {
+timeline-steps {
   display: flex;
   align-items: flex-start;
   justify-content: center;
@@ -419,7 +419,7 @@ section {
   position: relative;
 }
 
-.timeline-step-icon {
+timeline-step-icon {
   width: 60px;
   height: 60px;
   background: rgba(255, 255, 255, 0.15);
@@ -433,7 +433,7 @@ section {
   border: 2px solid rgba(255, 255, 255, 0.4);
 }
 
-.timeline-step-title {
+timeline-step-title {
   font-size: 0.9rem;
   font-weight: 800;
   text-transform: uppercase;
@@ -441,14 +441,14 @@ section {
   letter-spacing: 1px;
 }
 
-.timeline-step-desc {
+timeline-step-desc {
   font-size: 0.75rem;
   opacity: 0.75;
   margin-top: 0.25rem;
   max-width: 110px;
 }
 
-.timeline-connector {
+timeline-connector {
   flex: 1;
   height: 2px;
   background: rgba(255, 255, 255, 0.3);
@@ -685,7 +685,10 @@ section {
   background-repeat: no-repeat;
 }
 .hero-half-store {
-  background: var(--magenta-dark);
+  background-image: linear-gradient(rgba(192, 38, 211, 0.72), rgba(192, 38, 211, 0.72)), url('../juegos1.JPG');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 .hero-half-icon {
   font-size: 5rem;
