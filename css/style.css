@@ -431,7 +431,7 @@ section {
   filter: brightness(0.85);
 }
 
-/* ---- Musica: video de fondo con overlay azul ---- */
+/* ---- Musica: fondo azul ---- */
 .hero-half-music {
   background: #0f1f5c;
 }
@@ -466,12 +466,9 @@ section {
   gap: 0.5rem;
 }
 
-/* ---- Tienda: juegos1.JPG de fondo ---- */
+/* ---- Tienda: fondo magenta solido ---- */
 .hero-half-store {
-  background-image: linear-gradient(rgba(192, 38, 211, 0.72), rgba(192, 38, 211, 0.72)), url('../juegos1.JPG');
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
+  background: var(--magenta-dark);
 }
 
 .hero-half-icon {
