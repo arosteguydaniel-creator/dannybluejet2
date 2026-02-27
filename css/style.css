@@ -399,7 +399,7 @@ section {
   background: var(--blue-dark);
 }
 
-timeline-steps {
+.timeline-steps {
   display: flex;
   align-items: flex-start;
   justify-content: center;
@@ -419,7 +419,7 @@ timeline-steps {
   position: relative;
 }
 
-timeline-step-icon {
+.timeline-step-icon {
   width: 60px;
   height: 60px;
   background: rgba(255, 255, 255, 0.15);
@@ -433,7 +433,7 @@ timeline-step-icon {
   border: 2px solid rgba(255, 255, 255, 0.4);
 }
 
-timeline-step-title {
+.timeline-step-title {
   font-size: 0.9rem;
   font-weight: 800;
   text-transform: uppercase;
@@ -441,14 +441,14 @@ timeline-step-title {
   letter-spacing: 1px;
 }
 
-timeline-step-desc {
+.timeline-step-desc {
   font-size: 0.75rem;
   opacity: 0.75;
   margin-top: 0.25rem;
   max-width: 110px;
 }
 
-timeline-connector {
+.timeline-connector {
   flex: 1;
   height: 2px;
   background: rgba(255, 255, 255, 0.3);
@@ -679,10 +679,35 @@ timeline-connector {
   filter: brightness(0.85);
 }
 .hero-half-music {
-  background-image: linear-gradient(rgba(30, 58, 138, 0.72), rgba(30, 58, 138, 0.72)), url('../dbj1.jpeg');
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
+  background: var(--blue-dark);
+  position: relative;
+  overflow: hidden;
+}
+.hero-half-video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+}
+.hero-half-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(30, 58, 138, 0.72);
+  z-index: 1;
+}
+.hero-half-content {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
 }
 .hero-half-store {
   background-image: linear-gradient(rgba(192, 38, 211, 0.72), rgba(192, 38, 211, 0.72)), url('../juegos1.JPG');
