@@ -433,10 +433,9 @@ section {
 
 /* ---- Musica: dbj1.jpeg de fondo con overlay azul ---- */
 .hero-half-music {
-  background-image: url('../dbj1.jpeg');
+  background-image: linear-gradient(rgba(37, 99, 235, 0.65), rgba(30, 58, 138, 0.75)), url('../dbj1.jpeg');
   background-size: cover;
   background-position: center;
-  background-repeat: no-repeat;
 }
 
 .hero-half-overlay {
