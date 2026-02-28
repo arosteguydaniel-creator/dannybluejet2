@@ -5,6 +5,42 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Danny Blue Jet</title>
   <link rel="stylesheet" href="css/style.css">
+  <style>
+    /* ===== VIDEO BACKGROUND EN HERO MÚSICA ===== */
+    .hero-half-music {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-half-music .music-video-bg {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 60%;
+      z-index: 0;
+      pointer-events: none;
+    }
+
+    .hero-half-music .music-video-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(37, 99, 235, 0.55);
+      z-index: 1;
+    }
+
+    .hero-half-music .hero-half-title,
+    .hero-half-music .hero-half-subtitle,
+    .hero-half-music .btn-pill {
+      position: relative;
+      z-index: 2;
+    }
+  </style>
 </head>
 <body>
 
@@ -28,6 +64,12 @@
   <!-- ===================== HERO SPLIT ===================== -->
   <div class="hero-split">
     <a href="music.html" class="hero-half hero-half-music">
+      <!-- Video de fondo -->
+      <video class="music-video-bg" autoplay muted loop playsinline>
+        <source src="volver_a_marte_clip.mp4" type="video/mp4">
+      </video>
+      <!-- Overlay azul -->
+      <div class="music-video-overlay"></div>
       <div class="hero-half-title">Música</div>
       <div class="hero-half-subtitle">Escucha y eventos</div>
       <span class="btn-pill btn-white">Ir a Música</span>
