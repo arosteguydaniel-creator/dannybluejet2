@@ -61,8 +61,10 @@ body {
   align-items: center;
   gap: 2rem;
   list-style: none;
+  /* AGREGAR ESTO: */
+  margin-left: auto;   /* Empuja los links a la derecha */
+  margin-right: 2rem;  /* Deja espacio antes del botón hamburger en móvil */
 }
-
 .navbar-links a {
   color: var(--white);
   text-decoration: none;
