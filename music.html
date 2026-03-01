@@ -65,13 +65,17 @@
     
     <div style="width: 100%; max-width: 400px;">
       
-      <div class="event-card" style="min-height: 450px !important; display: flex; flex-direction: column; justify-content: space-between; padding: 40px 20px !important; box-sizing: border-box;">
+      <div class="event-card" style="min-height: 450px !important; display: flex; flex-direction: column; justify-content: space-between; padding: 40px 20px !important; box-sizing: border-box; position: relative; overflow: hidden; background: black;">
         
-        <span class="event-date">06 MAR 2026</span>
+        <video autoplay muted loop playsinline style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: 0; opacity: 0.7;">
+          <source src="greed_marzo.mp4" type="video/mp4">
+        </video>
+
+        <span class="event-date" style="position: relative; z-index: 1; color: white !important;">06 MAR 2026</span>
         
-        <div class="event-details-bottom">
-          <div class="event-name">Greed Taproom</div>
-          <div class="event-location">Zenteno 2661, Osorno</div>
+        <div class="event-details-bottom" style="position: relative; z-index: 1;">
+          <div class="event-name" style="color: white !important;">Greed Taproom</div>
+          <div class="event-location" style="color: rgba(255,255,255,0.8) !important;">Zenteno 2661, Osorno</div>
         </div>
         
       </div>
