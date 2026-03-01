@@ -22,36 +22,11 @@
       <li><a href="index.html#contact">Contacto</a></li>
     </ul>
     <div class="navbar-right">
-      <button class="cart-btn" onclick="toggleCart()" aria-label="Carrito de compras">
-        🛒
-        <span class="cart-badge" id="cartBadge" style="display:none;">0</span>
-      </button>
       <button class="hamburger" aria-label="Menú" aria-expanded="false">
         <span></span><span></span><span></span>
       </button>
     </div>
   </nav>
-
-  <!-- ===================== CART OVERLAY + SIDEBAR ===================== -->
-  <div class="cart-overlay" id="cartOverlay"></div>
-
-  <aside class="cart-sidebar" id="cartSidebar" role="dialog" aria-label="Carrito de compras">
-    <div class="cart-header">
-      <h2>🛒 Tu Carrito</h2>
-      <button class="cart-close-btn" onclick="closeCart()" aria-label="Cerrar carrito">✕</button>
-    </div>
-    <div class="cart-items" id="cartItems">
-      <p class="cart-empty">Tu carrito está vacío 🛒</p>
-    </div>
-    <div class="cart-footer">
-      <div class="cart-total">
-        <span class="cart-total-label">Total:</span>
-        <span class="cart-total-amount" id="cartTotal">$0.00</span>
-      </div>
-      <button class="checkout-btn" id="checkoutBtn">Finalizar Compra 💳</button>
-    </div>
-  </aside>
-
   <!-- ===================== HERO ===================== -->
   <section class="games-hero">
     <h1 class="fade-in">Juegos de Mesa</h1>
