@@ -7,9 +7,11 @@
     <link rel="stylesheet" href="music.css">
     <style>
         body {
-            background-color: #0a0a0a;
+            /* Usamos el fondo azul oscuro de tu sección principal */
+            background-color: #1a1a2e; 
+            background: radial-gradient(circle at center, #2563eb 0%, #1a1a2e 100%);
             color: white;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -19,80 +21,94 @@
         }
 
         .success-container {
-            background: linear-gradient(145deg, #1e1e1e, #121212);
-            padding: 50px 30px;
-            border-radius: 30px;
-            box-shadow: 0 20px 50px rgba(0,0,0,0.5);
-            max-width: 400px;
+            /* Gradiente similar al de tu reproductor de música */
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0.8), rgba(37, 99, 235, 0.9));
+            padding: 60px 40px;
+            border-radius: 40px;
+            box-shadow: 0 30px 60px rgba(0,0,0,0.4);
+            max-width: 450px;
             width: 90%;
-            border: 1px solid rgba(255,255,255,0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.2);
         }
 
         .icon-box {
-            width: 80px;
-            height: 80px;
-            background: #4ade80;
-            color: white;
+            width: 90px;
+            height: 90px;
+            background: #ffffff;
+            color: #2563eb; /* Azul corporativo en el check */
             border-radius: 50%;
             display: flex;
             justify-content: center;
             align-items: center;
-            font-size: 40px;
-            margin: 0 auto 20px;
-            box-shadow: 0 0 20px rgba(74, 222, 128, 0.4);
+            font-size: 50px;
+            margin: 0 auto 25px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
         }
 
         h1 {
-            font-size: 2rem;
-            margin-bottom: 10px;
+            font-size: 2.2rem;
+            margin-bottom: 15px;
+            font-weight: 800;
             text-transform: uppercase;
-            letter-spacing: 2px;
+            letter-spacing: -1px;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.2);
         }
 
         p {
-            color: rgba(255,255,255,0.8);
-            line-height: 1.6;
-            margin-bottom: 30px;
+            color: #ffffff;
+            font-size: 1.1rem;
+            line-height: 1.5;
+            margin-bottom: 35px;
+            opacity: 0.9;
         }
 
         .ticket-info {
-            background: rgba(37, 99, 235, 0.1);
-            border: 1px dashed #2563eb;
-            padding: 15px;
-            border-radius: 15px;
-            margin-bottom: 30px;
+            background: rgba(255, 255, 255, 0.15);
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            padding: 20px;
+            border-radius: 20px;
+            margin-bottom: 35px;
         }
 
         .btn-back {
             display: inline-block;
-            background: #2563eb;
-            color: white;
+            background: #ffffff;
+            color: #2563eb;
             text-decoration: none;
-            padding: 15px 30px;
+            padding: 18px 40px;
             border-radius: 50px;
-            font-weight: bold;
+            font-weight: 900;
             text-transform: uppercase;
-            transition: all 0.3s ease;
-            box-shadow: 0 5px 15px rgba(37, 99, 235, 0.4);
+            letter-spacing: 1px;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
         }
 
         .btn-back:hover {
-            transform: translateY(-3px);
-            background: #1d4ed8;
-            box-shadow: 0 8px 20px rgba(37, 99, 235, 0.6);
+            transform: scale(1.05);
+            background: #f8fafc;
+            box-shadow: 0 15px 30px rgba(0,0,0,0.3);
         }
+
+        /* Pequeño detalle de animación para el check */
+        @keyframes popIn {
+            0% { transform: scale(0); }
+            100% { transform: scale(1); }
+        }
+        .icon-box { animation: popIn 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
     </style>
 </head>
 <body>
 
     <div class="success-container">
         <div class="icon-box">✓</div>
-        <h1>Compra confirmada!</h1>
+        <h1>¡Compra confirmada!</h1>
         <p>Tu pago ha sido procesado con éxito. Ya tienes tu acceso a la ludoteca para el 06 de marzo.</p>
         
         <div class="ticket-info">
-            <small style="color: #2563eb; font-weight: bold;">IMPORTANTE</small><br>
-            Te llegará un correo de confirmación de Flow. Preséntalo en el evento.
+            <small style="text-transform: uppercase; letter-spacing: 1px; font-weight: 900;">Instrucciones</small><br>
+            <span style="font-size: 0.95rem;">Te llegará un correo de Flow. Preséntalo al llegar a <strong>Greed Taproom</strong>.</span>
         </div>
 
         <a href="index.html" class="btn-back">Volver al Inicio</a>
