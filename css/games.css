@@ -70,7 +70,7 @@
   gap: 1.5rem;
 }
 
-/* Product Card original */
+/* Product Card */
 .product-card {
   background: var(--white);
   border-radius: 16px;
@@ -79,6 +79,11 @@
   transition: transform 0.3s, box-shadow 0.3s;
   display: flex;
   flex-direction: column;
+}
+
+.product-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.15);
 }
 
 .product-image {
@@ -99,75 +104,28 @@
   font-size: 0.75rem;
   font-weight: 700;
   text-transform: uppercase;
-  z-index: 10;
-}
 }
 
-.product-image img {
-  width: 100%;
-  height: 100%;
-  object-fit: contain; 
-  padding: 15px;
-  position: relative;
-  z-index: 1; /* La imagen va atrás */
+.badge-strategy {
+  background: var(--blue-primary);
+  color: var(--white);
 }
 
-/* Línea 105: Los Badges (Etiquetas) */
-.product-category-badge {
-  position: absolute;
-  top: 12px;
-  right: 12px;
-  z-index: 10; /* El badge va adelante */
-  padding: 0.3rem 0.85rem;
-  border-radius: 50px;
-  font-size: 0.75rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  white-space: nowrap; /* Evita que el texto se deforme */
+.badge-party {
+  background: var(--magenta);
+  color: var(--white);
 }
 
-.badge-strategy { background: var(--blue-primary); color: var(--white); }
-.badge-party    { background: var(--magenta); color: var(--white); }
-.badge-familiar { background: var(--red-accent); color: var(--white); }
-.badge-clasicos { background: var(--blue-dark); color: var(--white); }
-
-/* Línea 125: Fondos automáticos por categoría */
-.product-card[data-category="familiar"] .product-image {
-  background: linear-gradient(180deg, #ff8c00, #e65100, #3e2723) !important;
+.badge-familiar {
+  background: var(--red-accent);
+  color: var(--white);
 }
 
-.product-card[data-category="fiesta"] .product-image {
-  background: linear-gradient(135deg, #f59e0b, #ec4899, #8b5cf6) !important;
+.badge-clasicos {
+  background: var(--blue-dark);
+  color: var(--white);
 }
 
-.product-card[data-category="estrategia"] .product-image {
-  background: linear-gradient(135deg, #00b4db, #0083b0) !important;
-}
-
-.product-card[data-category="clasicos"] .product-image {
-  background: linear-gradient(135deg, #2c3e50, #000000) !important;
-}
-/* Fondos automáticos por categoría */
-
-/* Si la tarjeta es 'familiar', pon fondo de fuego (Papas) */
-.product-card[data-category="familiar"] .product-image {
-  background: linear-gradient(180deg, #ff8c00, #e65100, #3e2723) !important;
-}
-
-/* Si la tarjeta es 'fiesta', pon el gradiente de Mala Leche */
-.product-card[data-category="fiesta"] .product-image {
-  background: linear-gradient(135deg, #f59e0b, #ec4899, #8b5cf6) !important;
-}
-
-/* Si la tarjeta es 'estrategia', un azul tecnológico */
-.product-card[data-category="estrategia"] .product-image {
-  background: linear-gradient(135deg, #00b4db, #0083b0) !important;
-}
-
-/* Si la tarjeta es 'clásicos', un tono elegante oscuro */
-.product-card[data-category="clasicos"] .product-image {
-  background: linear-gradient(135deg, #2c3e50, #000000) !important;
-}
 .product-body {
   padding: 1.25rem;
   flex: 1;
