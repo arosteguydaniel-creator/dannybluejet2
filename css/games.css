@@ -91,8 +91,17 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 4rem;
   position: relative;
+  overflow: hidden; /* Para que el gradiente no se salga de las esquinas */
+}
+
+/* Añade esto para que la foto no tape todo el fondo */
+.product-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain; 
+  padding: 15px; /* Esto crea el "marco" de color */
+}
 }
 
 .product-category-badge {
@@ -125,7 +134,27 @@
   background: var(--blue-dark);
   color: var(--white);
 }
+/* Fondos automáticos por categoría */
 
+/* Si la tarjeta es 'familiar', pon fondo de fuego (Papas) */
+.product-card[data-category="familiar"] .product-image {
+  background: linear-gradient(180deg, #ff8c00, #e65100, #3e2723) !important;
+}
+
+/* Si la tarjeta es 'fiesta', pon el gradiente de Mala Leche */
+.product-card[data-category="fiesta"] .product-image {
+  background: linear-gradient(135deg, #f59e0b, #ec4899, #8b5cf6) !important;
+}
+
+/* Si la tarjeta es 'estrategia', un azul tecnológico */
+.product-card[data-category="estrategia"] .product-image {
+  background: linear-gradient(135deg, #00b4db, #0083b0) !important;
+}
+
+/* Si la tarjeta es 'clásicos', un tono elegante oscuro */
+.product-card[data-category="clasicos"] .product-image {
+  background: linear-gradient(135deg, #2c3e50, #000000) !important;
+}
 .product-body {
   padding: 1.25rem;
   flex: 1;
