@@ -1,193 +1,45 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Tienda de Juegos - Danny Blue Jet</title>
-  <link rel="stylesheet" href="css/style.css">
-  <link rel="stylesheet" href="css/games.css">
-  <script defer src="https://cloud.umami.is/script.js" data-website-id="16ceb526-7cf0-4b63-b670-a13e9eb20822"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Games</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-
-  <!-- ===================== NAVBAR ===================== -->
-<nav class="navbar">
-  <a href="index.html" class="navbar-logo">
-    <span class="logo-icon">✈️</span>
-    Danny Blue Jet
-  </a>
-  
-  <ul class="navbar-links">
-    <li><a href="index.html">Inicio</a></li>
-    <li><a href="music.html">Música</a></li>
-    <li><a href="games.html">Juegos de Mesa</a></li>
-    <li><a href="index.html#contact">Contacto</a></li>
-  </ul>
-
-  <div class="navbar-right">
-    <button class="hamburger" aria-label="Menú">
-      <span></span><span></span><span></span>
-    </button>
-  </div>
-</nav>
-  <!-- ===================== HERO ===================== -->
-  <section class="games-hero">
-    <h1 class="fade-in">Juegos de Mesa</h1>
-    <p class="fade-in">Eventos y Tienda de Juegos</p>
-  </section>
-<section class="events-section">
-  <h2 style="color:white; text-align:center; margin-bottom:2rem; text-transform:uppercase; font-size:2rem;">Próximos Eventos</h2>
-  
-  <div class="events-grid" style="display: flex; justify-content: center; padding: 0 20px;">
-    
-    <div style="width: 100%; max-width: 400px;">
-      
-      <div class="event-card" style="min-height: 520px !important; display: flex; flex-direction: column; justify-content: space-between; padding: 40px 25px !important; box-sizing: border-box; position: relative; overflow: hidden; background: black; border-radius: 20px;">
-        
-        <video autoplay muted loop playsinline style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: 0; opacity: 0.6;">
-          <source src="greed_marzo.mp4" type="video/mp4">
-        </video>
-
-        <span class="event-date" style="position: relative; z-index: 1; color: white !important; font-size: 1.5rem !important; font-weight: bold; text-shadow: 2px 2px 4px rgba(0,0,0,0.8);">
-          06 MAR 2026
-        </span>
-        
-        <div style="position: relative; z-index: 1; display: flex; flex-direction: column; gap: 10px;">
-          <div class="event-name" style="color: white !important; font-size: 2rem !important; font-weight: 800; text-shadow: 2px 2px 4px rgba(0,0,0,0.8); line-height: 1;">Greed Taproom</div>
-          <div style="color: rgba(255,255,255,0.9); font-size: 1.1rem; text-shadow: 1px 1px 3px rgba(0,0,0,0.8);">Zenteno 2661, Osorno<br><strong>20:00 hrs.</strong></div>
-          <div style="margin-top: 5px; text-shadow: 1px 1px 3px rgba(0,0,0,0.8);">
-            <div style="color: rgba(255,255,255,0.7); font-size: 0.9rem;">Acceso a la ludoteca: <span style="text-decoration: line-through;">$2.000</span></div>
-            <div style="color: #4ade80; font-size: 1.2rem; font-weight: bold;">50% de descuento web: $1.000</div>
-          </div>
-          <a href="https://www.flow.cl/btn.php?token=rea58cadbfcd9d3ad4edaf66f0cc79d66d380bbb" style="display: block; background: #2563eb; color: white; text-decoration: none; padding: 12px; border-radius: 10px; font-weight: bold; font-size: 1.1rem; text-align: center; margin-top: 10px; text-transform: uppercase; box-shadow: 0 4px 15px rgba(0,0,0,0.4);">Comprar</a>
+    <section class="products-grid">
+        <!-- Other product cards -->
+        <!-- Carcassonne product card -->
+        <div class="product-card fade-in" data-category="strategy">
+            <div class="product-image" style="background: linear-gradient(135deg, #7c3aed, #a78bfa, #f0abfc); display:flex; align-items:center; justify-content:center; overflow:hidden; padding:0;">
+                <img src="carcassonne.jpg" alt="Carcassonne" style="width:100%; height:100%; object-fit:cover;">
+                <span class="product-category-badge badge-strategy">Strategy</span>
+            </div>
+            <div class="product-body">
+                <h3 class="product-name">Carcassonne</h3>
+                <p class="product-desc">Carcassonne es un juego de mesa donde los jugadores construyen una ciudad medieval.</p>
+                <div class="product-price">$24.990 CLP</div>
+                <a href="products/carcassonne.html" class="add-to-cart-btn">
+                    Ver producto →
+                </a>
+            </div>
         </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-  <!-- ===================== PRODUCTS GRID ===================== -->
-  <section class="products-section">
-    <div class="products-grid">
-
-      <!-- Quién Fue -->
-      <div class="product-card fade-in" data-category="familiar">
-        <div class="product-image" style="background: #f5f5f5; display:flex; align-items:center; justify-content:center; overflow:hidden; padding:0;">
-          <img src="quien-fue-1.png" alt="¿Quién Fue?" style="width:100%; height:100%; object-fit:cover;">
-          <span class="product-category-badge badge-familiar">Familiar</span>
+        <!-- Dixit -->
+        <div class="product-card fade-in" data-category="familiar">
+            <div class="product-image" style="background: linear-gradient(135deg, #7c3aed, #a78bfa, #f0abfc); display:flex; align-items:center; justify-content:center; overflow:hidden; padding:0;">
+                <img src="dixit.jpg" alt="Dixit" style="width:100%; height:100%; object-fit:cover;">
+                <span class="product-category-badge badge-familiar">Familiar</span>
+            </div>
+            <div class="product-body">
+                <h3 class="product-name">Dixit</h3>
+                <p class="product-desc">Dixit es un galardonado juego de mesa de deducción y creatividad donde los jugadores utilizan cartas con ilustraciones surrealistas para contar historias y engañar a sus oponentes.</p>
+                <div class="product-price">$29.990 CLP</div>
+                <a href="products/dixit.html" class="add-to-cart-btn">
+                    Ver producto →
+                </a>
+            </div>
         </div>
-        <div class="product-body">
-          <h3 class="product-name">¿Quién Fue?</h3>
-          <p class="product-desc">Un divertido y caótico juego de agilidad mental donde la memoria es clave para salvar a tu mascota y culpar al resto.</p>
-          <div class="product-price">$12.990 CLP</div>
-          <a href="products/quien-fue.html" class="add-to-cart-btn">
-            Ver producto →
-          </a>
-        </div>
-      </div>
-
-      <!-- Mala Leche con Plátano -->
-      <div class="product-card fade-in" data-category="fiesta">
-        <div class="product-image" style="background: linear-gradient(135deg, #f59e0b, #ec4899, #8b5cf6); display:flex; align-items:center; justify-content:center; overflow:hidden; padding:0;">
-          <img src="mala-leche-con-platano.png" alt="Mala Leche con Plátano" style="width:100%; height:100%; object-fit:cover;">
-          <span class="product-category-badge badge-party">Fiesta</span>
-        </div>
-        <div class="product-body">
-          <h3 class="product-name">Mala Leche con Plátano</h3>
-          <p class="product-desc">Ríe a carcajadas completando frases con los pensamientos más "horribles, inmorales y pencas" de la sociedad chilena.</p>
-          <div class="product-price">$19.990 CLP</div>
-          <a href="products/mala-leche-con-platano.html" class="add-to-cart-btn">
-            Ver producto →
-          </a>
-        </div>
-      </div>
-
-      <!-- Donde las Papas Queman -->
-      <div class="product-card fade-in" data-category="fiesta">
-        <div class="product-image" style="background: linear-gradient(135deg, #ef4444, #f97316); display:flex; align-items:center; justify-content:center; overflow:hidden; padding:0;">
-          <img src="papas-queman.jpg.png" alt="Donde las Papas Queman" style="width:100%; height:100%; object-fit:cover;">
-          <span class="product-category-badge badge-party">Fiesta</span>
-        </div>
-        <div class="product-body">
-          <h3 class="product-name">Donde las Papas Queman</h3>
-          <p class="product-desc">Un Juego divertido y dinámico de 2 a 5 jugadores con muchas referencias divertidas </p>
-          <div class="product-price">$15.990 CLP</div>
-          <a href="products/papas-queman.html" class="add-to-cart-btn">
-            Ver producto →
-          </a>
-        </div>
-      </div>
-
-      <!-- Catan -->
-      <div class="product-card fade-in" data-category="estrategia">
-        <div class="product-image" style="background: linear-gradient(135deg, #1e3a5f, #2563eb); display:flex; align-items:center; justify-content:center; overflow:hidden; padding:0;">
-          <img src="catan-1.jpg" alt="Catan" style="width:100%; height:100%; object-fit:cover;">
-          <span class="product-category-badge badge-strategy">Estrategia</span>
-        </div>
-        <div class="product-body">
-          <h3 class="product-name">Catan</h3>
-          <p class="product-desc">El clásico juego de estrategia y comercio. Construye rutas, ciudades y colonias para conquistar la isla.</p>
-          <div class="product-price">$34.990 CLP</div>
-          <a href="products/catan.html" class="add-to-cart-btn">
-            Ver producto →
-          </a>
-        </div>
-      </div>
-
-      <!-- Mala Leche con Ají -->
-      <div class="product-card fade-in" data-category="fiesta">
-        <div class="product-image" style="background: linear-gradient(135deg, #dc2626, #f97316, #facc15); display:flex; align-items:center; justify-content:center; overflow:hidden; padding:0;">
-          <img src="mala-leche-con-aji.png" alt="Mala Leche con Ají" style="width:100%; height:100%; object-fit:cover;">
-          <span class="product-category-badge badge-party">Fiesta</span>
-        </div>
-        <div class="product-body">
-          <h3 class="product-name">Mala Leche con Ají</h3>
-          <p class="product-desc">Mala Leche con Ají es la cuarta y más picante versión del popular juego de cartas chileno de humor negro "Mala Leche".</p>
-          <div class="product-price">$19.990 CLP</div>
-          <a href="products/mala-leche-con-aji.html" class="add-to-cart-btn">
-            Ver producto →
-          </a>
-        </div>
-      </div>
-
-      <!-- Carcassonne -->
-      <div class="product-card fade-in" data-category="estrategia">
-        <div class="product-image" style="background: linear-gradient(135deg, #78350f, #d97706, #fbbf24); display:flex; align-items:center; justify-content:center; overflow:hidden; padding:0;">
-          <img src="carcassone.png" alt="Carcassonne" style="width:100%; height:100%; object-fit:cover;">
-          <span class="product-category-badge badge-strategy">Estrategia</span>
-        </div>
-        <div class="product-body">
-          <h3 class="product-name">Carcassonne</h3>
-          <p class="product-desc">Inspirado en la ciudad medieval amurallada del sur de Francia, el juego consiste en construir paisajes turno a turno mediante piezas que representan caminos, ciudades y monasterios.</p>
-          <div class="product-price">$29.990 CLP</div>
-          <a href="products/carcassone.html" class="add-to-cart-btn">
-            Ver producto →
-          </a>
-        </div>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- ===================== FOOTER ===================== -->
-  <footer class="footer" id="contact">
-    <h2>Contacto</h2>
-    <div class="footer-contacts">
-      <a href="mailto:arosteguy.daniel@gmail.com" class="footer-contact-btn">
-        📧 arosteguy.daniel@gmail.com
-      </a>
-      <a href="tel:+56978286738" class="footer-contact-btn">
-        📞 +56-9-7828-6738
-      </a>
-    </div>
-    <p class="footer-privacy">
-      <a href="privacidad.html" style="color: rgba(255,255,255,0.6); text-decoration: none; font-size: 0.85rem;">Políticas de Privacidad</a>
-      &nbsp;·&nbsp;
-      <a href="terminos.html" style="color: rgba(255,255,255,0.6); text-decoration: none; font-size: 0.85rem;">Términos y Condiciones</a>
-    </p>
-    <p class="footer-bottom">© 2026 Danny Blue Jet. Todos los derechos reservados.</p>
-  </footer>
-
-  <script src="js/main.js"></script>
+        <!-- Closing tag for products-grid -->
+    </section>
 </body>
 </html>
