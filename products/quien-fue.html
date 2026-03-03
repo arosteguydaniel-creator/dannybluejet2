@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>¿Quién Fue? - Danny Blue Jet</title>
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/games.css">
+  <script defer src="https://cloud.umami.is/script.js" data-website-id="16ceb526-7cf0-4b63-b670-a13e9eb20822"></script>
+  <style>
+    .product-detail-section {
+      max-width: 900px;
+      margin: 60px auto;
+      padding: 0 20px;
+      color: white;
+    }
+    .product-detail-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      align-items: start;
+    }
+    @media (max-width: 700px) {
+      .product-detail-grid { grid-template-columns: 1fr; }
+    }
+    .product-detail-img {
+      width: 100%;
+      border-radius: 18px;
+      object-fit: cover;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.5);
+    }
+    .product-detail-info h1 {
+      font-size: 2rem;
+      font-weight: 800;
+      margin-bottom: 10px;
+    }
+    .product-detail-badge {
+      display: inline-block;
+      background: #16a34a;
+      color: white;
+      font-size: 0.8rem;
+      font-weight: bold;
+      padding: 4px 12px;
+      border-radius: 20px;
+      text-transform: uppercase;
+      margin-bottom: 14px;
+    }
+    .product-detail-price {
+      font-size: 2rem;
+      font-weight: 800;
+      color: #4ade80;
+      margin-bottom: 18px;
+    }
+    .product-detail-desc {
+      color: rgba(255,255,255,0.85);
+      font-size: 1rem;
+      line-height: 1.7;
+      margin-bottom: 24px;
+    }
+    .product-detail-desc-long {
+      color: rgba(255,255,255,0.75);
+      font-size: 0.95rem;
+      line-height: 1.7;
+      margin-bottom: 28px;
+    }
+    .buy-btn {
+      display: block;
+      background: #2563eb;
+      color: white;
+      text-decoration: none;
+      padding: 14px 24px;
+      border-radius: 12px;
+      font-weight: bold;
+      font-size: 1.1rem;
+      text-align: center;
+      text-transform: uppercase;
+      box-shadow: 0 4px 15px rgba(37,99,235,0.4);
+      transition: background 0.2s;
+      margin-bottom: 14px;
+    }
+    .buy-btn:hover { background: #1d4ed8; }
+    .back-btn {
+      display: inline-block;
+      color: rgba(255,255,255,0.6);
+      text-decoration: none;
+      font-size: 0.9rem;
+      margin-bottom: 30px;
+    }
+    .back-btn:hover { color: white; }
+    .specs-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 30px;
+      color: rgba(255,255,255,0.85);
+      font-size: 0.95rem;
+    }
+    .specs-table th, .specs-table td {
+      padding: 10px 14px;
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+      text-align: left;
+    }
+    .specs-table th {
+      color: rgba(255,255,255,0.5);
+      font-weight: 600;
+      text-transform: uppercase;
+      font-size: 0.8rem;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ===================== NAVBAR ===================== -->
+  <nav class="navbar">
+    <a href="../index.html" class="navbar-logo">
+      <span class="logo-icon">✈️</span>
+      Danny Blue Jet
+    </a>
+    <ul class="navbar-links">
+      <li><a href="../index.html">Inicio</a></li>
+      <li><a href="../music.html">Música</a></li>
+      <li><a href="../games.html">Juegos de Mesa</a></li>
+      <li><a href="../index.html#contact">Contacto</a></li>
+    </ul>
+    <button class="hamburger" aria-label="Menú">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- ===================== PRODUCT DETAIL ===================== -->
+  <section class="product-detail-section">
+    <a href="../games.html" class="back-btn">← Volver a Juegos de Mesa</a>
+
+    <div class="product-detail-grid">
+      <div>
+        <img src="../quien-fue-1.png" alt="¿Quién Fue?" class="product-detail-img">
+      </div>
+      <div class="product-detail-info">
+        <span class="product-detail-badge">Familiar</span>
+        <h1>¿Quién Fue?</h1>
+        <div class="product-detail-price">$12.990 CLP</div>
+        <p class="product-detail-desc">
+          Un divertido y caótico juego de agilidad mental donde la memoria es clave para salvar a tu mascota y culpar al resto.
+        </p>
+        <p class="product-detail-desc-long">
+          En <strong>¿Quién Fue?</strong>, cada jugador tiene una mascota que debe proteger a toda costa. A través de rondas rápidas y sorpresivas, deberás recordar quién hizo qué para señalar al culpable antes de que lo hagan contigo. Un juego perfecto para reuniones familiares y noches de risas garantizadas.
+        </p>
+        <a href="#" class="buy-btn">Comprar ahora</a>
+
+        <table class="specs-table">
+          <tr><th>Jugadores</th><td>2 – 6</td></tr>
+          <tr><th>Edad</th><td>8+</td></tr>
+          <tr><th>Duración</th><td>15 – 30 min</td></tr>
+          <tr><th>Mecánica</th><td>Memoria, Deducción</td></tr>
+          <tr><th>Componentes</th><td>Cartas, fichas de mascotas, dados</td></tr>
+          <tr><th>Idioma</th><td>Español</td></tr>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== FOOTER ===================== -->
+  <footer class="footer" id="contact">
+    <h2>Contacto</h2>
+    <div class="footer-contacts">
+      <a href="mailto:arosteguy.daniel@gmail.com" class="footer-contact-btn">
+        📧 arosteguy.daniel@gmail.com
+      </a>
+      <a href="tel:+56978286738" class="footer-contact-btn">
+        📞 +56-9-7828-6738
+      </a>
+    </div>
+    <p class="footer-privacy">
+      <a href="../privacidad.html" style="color: rgba(255,255,255,0.6); text-decoration: none; font-size: 0.85rem;">Políticas de Privacidad</a>
+      &nbsp;·&nbsp;
+      <a href="../terminos.html" style="color: rgba(255,255,255,0.6); text-decoration: none; font-size: 0.85rem;">Términos y Condiciones</a>
+    </p>
+    <p class="footer-bottom">© 2026 Danny Blue Jet. Todos los derechos reservados.</p>
+  </footer>
+
+  <script src="../js/main.js"></script>
+</body>
+</html>
