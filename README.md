@@ -60,6 +60,9 @@ Todos los pixels de seguimiento y herramientas de analítica se gestionan desde 
 - Páginas en la raíz: `<script defer src="js/trackers.js"></script>`
 - Páginas en `products/`: `<script defer src="../js/trackers.js"></script>`
 
+> ⚠️ **Importante:** No agregar snippets inline de trackers directamente en los HTML.
+> Todo se gestiona desde `js/trackers.js`.
+
 ## 📬 Contacto
 - Email: hello@reallygreatsite.com
 - Teléfono: 123-456-7890
