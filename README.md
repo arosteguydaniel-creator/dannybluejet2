@@ -36,9 +36,29 @@ dannybluejet2/
 │   ├── games.css
 │   └── music.css
 ├── js/
-│   └── main.js
+│   ├── main.js
+│   └── trackers.js
 └── README.md
 ```
+
+## 📊 Trackers y analítica
+
+Todos los pixels de seguimiento y herramientas de analítica se gestionan desde un único archivo: **`js/trackers.js`**.
+
+| Herramienta | ID |
+|---|---|
+| Meta Pixel | `3627643840689292` |
+| TikTok Pixel | `D6KT7G3C77U3SAC89O0G` |
+| Umami | `16ceb526-7cf0-4b63-b670-a13e9eb20822` |
+
+### Estrategia de carga
+- El archivo se incluye con `defer` en el `<head>` de cada página.
+- La inicialización se retrasa hasta que el navegador esté inactivo (`requestIdleCallback`) o hasta 3 segundos tras la carga, o bien en el primer evento de interacción del usuario.
+- Si algún tracker falla, el error queda contenido y no afecta al resto del sitio.
+
+### Rutas de inclusión
+- Páginas en la raíz: `<script defer src="js/trackers.js"></script>`
+- Páginas en `products/`: `<script defer src="../js/trackers.js"></script>`
 
 ## 📬 Contacto
 - Email: hello@reallygreatsite.com
