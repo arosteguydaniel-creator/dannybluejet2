@@ -76,6 +76,32 @@
       position: relative;
       z-index: 2;
     }
+
+    /* ===== REDES SOCIALES EN FOOTER ===== */
+    .footer-social {
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+      margin: 1rem 0;
+    }
+
+    .footer-social a {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      transition: transform 0.2s ease, opacity 0.2s ease;
+    }
+
+    .footer-social a:hover {
+      transform: scale(1.15);
+      opacity: 0.85;
+    }
+
+    .footer-social img {
+      width: 40px;
+      height: 40px;
+      object-fit: contain;
+    }
   </style>
 </head>
 <body>
@@ -132,6 +158,14 @@
       </a>
       <a href="tel:+56978286738" class="footer-contact-btn">
         📞 +56-9-7828-6738
+      </a>
+    </div>
+    <div class="footer-social">
+      <a href="https://www.instagram.com/danny_blue_jet?igsh=MWUzOGZxZjJ3dDM3bg==" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+        <img src="instagram-logo.png" alt="Instagram">
+      </a>
+      <a href="https://www.tiktok.com/@danny_blue_jet?_r=1&_t=ZS-94SprqwyLeG" target="_blank" rel="noopener noreferrer" aria-label="TikTok">
+        <img src="tik-tok.png" alt="TikTok">
       </a>
     </div>
     <p class="footer-privacy">
