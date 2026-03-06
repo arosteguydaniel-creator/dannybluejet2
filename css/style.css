@@ -364,7 +364,7 @@ section {
 }
 
 .footer-social a img {
-  width: 40px;    /* Cambia este número para hacerlo más grande o pequeño */
+  width: 80px;    /* Cambia este número para hacerlo más grande o pequeño */
   height: auto;   /* Mantiene la proporción para que no se deformen */
   display: block;
 }
