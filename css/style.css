@@ -355,6 +355,20 @@ section {
   opacity: 0.7;
 }
 
+/* --- Nueva regla para los iconos del footer --- */
+.footer-social {
+  display: flex;
+  justify-content: center;
+  gap: 15px;      /* Espacio entre los iconos */
+  margin-top: 20px; /* Separación respecto a los otros elementos */
+}
+
+.footer-social a img {
+  width: 40px;    /* Cambia este número para hacerlo más grande o pequeño */
+  height: auto;   /* Mantiene la proporción para que no se deformen */
+  display: block;
+}
+
 /* ===================== ANIMATIONS ===================== */
 .fade-in {
   opacity: 0;
