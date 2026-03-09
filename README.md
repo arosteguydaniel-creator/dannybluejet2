@@ -1,16 +1,16 @@
 # 🎲🎵 Danny Blue Jet
 
-Sitio web oficial de **Danny Blue Jet** — una plataforma que combina una tienda online de juegos de mesa y una sección de música con player, eventos y venta de tickets.
+The official website for Danny Blue Jet — a platform that combines an online board game store and a music section featuring a player, event info, and ticket sales.
 
-## 🌐 Páginas
+## 🌐 Pages
 
-| Página | Descripción |
+| Page | Description |
 |---|---|
-| `index.html` | Página principal / landing |
-| `games.html` | Tienda online de juegos de mesa |
-| `music.html` | Sección de música, eventos y tickets |
+| `index.html` | Main Page / landing|
+| `games.html` | Online oard game store|
+| `music.html` | Music section, events and tickets|
 
-## 🎨 Estética
+## 🎨 Aesthetics
 - **Colores**: Azul brillante, rosa/magenta, rojo accent y blanco
 - **Tipografía**: Poppins (Google Fonts)
 - **Diseño**: Moderno, vibrante y responsivo
