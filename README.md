@@ -64,8 +64,8 @@ Todos los pixels de seguimiento y herramientas de analítica se gestionan desde 
 > Todo se gestiona desde `js/trackers.js`.
 
 ## 📬 Contacto
-- Email: hello@reallygreatsite.com
-- Teléfono: 123-456-7890
+- Email: arosteguy.daniel@gmail.com
+- Teléfono: +56 9 7828 6738
 
 ---
 *Danny Blue Jet © 2026*
