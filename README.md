@@ -16,6 +16,14 @@ The official website for Danny Blue Jet — a platform that combines an online b
 * **Typography**: Poppins (Google Fonts).
 * **Design**: Modern, vibrant, and responsive.
 
+## 🛒 E-commerce Flow: Direct Purchase
+To optimize the user experience and ensure low-friction transactions, the platform utilizes a Direct-to-Checkout architecture:
+
+Product Selection: Users browse the catalog in games.html, which is built using CSS Grid for a fully responsive, mobile-first experience.
+
+Streamlined Interaction: Each product is linked directly to a specific checkout endpoint using “Flow” payment links.
+
+
 ## 🛠️ Technologies
 
 * HTML5
