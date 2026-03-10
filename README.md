@@ -5,27 +5,31 @@ The official website for Danny Blue Jet — a platform that combines an online b
 ## 🌐 Pages
 
 | Page | Description |
-|---|---|
-| `index.html` | Main Page / landing|
-| `games.html` | Online oard game store|
-| `music.html` | Music section, events and tickets|
+| --- | --- |
+| `index.html` | Main Page / Landing |
+| `games.html` | Online board game store |
+| `music.html` | Music section, events, and ticket sales |
 
 ## 🎨 Aesthetics
-- **Colores**: Azul brillante, rosa/magenta, rojo accent y blanco
-- **Tipografía**: Poppins (Google Fonts)
-- **Diseño**: Moderno, vibrante y responsivo
 
-## 🛠️ Tecnologías
-- HTML5
-- CSS3 (variables, flexbox, grid)
-- JavaScript Vanilla
+* **Colors**: Bright blue, pink/magenta, red accent, and white.
+* **Typography**: Poppins (Google Fonts).
+* **Design**: Modern, vibrant, and responsive.
 
-## 🚀 Cómo usar
-1. Clona el repositorio
-2. Abre `index.html` en tu navegador
-3. ¡Disfruta el sitio!
+## 🛠️ Technologies
 
-## 📁 Estructura
+* HTML5
+* CSS3 (variables, flexbox, grid)
+* Vanilla JavaScript
+
+## 🚀 How to use
+
+1. Clone the repository.
+2. Open `index.html` in your browser.
+3. Enjoy the site!
+
+## 📁 Structure
+
 ```
 dannybluejet2/
 ├── index.html
@@ -39,33 +43,38 @@ dannybluejet2/
 │   ├── main.js
 │   └── trackers.js
 └── README.md
+
 ```
 
-## 📊 Trackers y analítica
+## 📊 Trackers and Analytics
 
-Todos los pixels de seguimiento y herramientas de analítica se gestionan desde un único archivo: **`js/trackers.js`**.
+All tracking pixels and analytics tools are managed from a single file: **`js/trackers.js`**.
 
-| Herramienta | ID |
-|---|---|
+| Tool | ID |
+| --- | --- |
 | Meta Pixel | `3627643840689292` |
 | TikTok Pixel | `D6KT7G3C77U3SAC89O0G` |
 | Umami | `16ceb526-7cf0-4b63-b670-a13e9eb20822` |
 
-### Estrategia de carga
-- El archivo se incluye con `defer` en el `<head>` de cada página.
-- La inicialización se retrasa hasta que el navegador esté inactivo (`requestIdleCallback`) o hasta 3 segundos tras la carga, o bien en el primer evento de interacción del usuario.
-- Si algún tracker falla, el error queda contenido y no afecta al resto del sitio.
+### Loading Strategy
 
-### Rutas de inclusión
-- Páginas en la raíz: `<script defer src="js/trackers.js"></script>`
-- Páginas en `products/`: `<script defer src="../js/trackers.js"></script>`
+* The file is included with `defer` in the `<head>` of each page.
+* Initialization is delayed until the browser is idle (`requestIdleCallback`), up to 3 seconds after page load, or upon the user's first interaction.
+* If any tracker fails, the error is contained and does not affect the rest of the site.
 
-> ⚠️ **Importante:** No agregar snippets inline de trackers directamente en los HTML.
-> Todo se gestiona desde `js/trackers.js`.
+### Inclusion Paths
 
-## 📬 Contacto
-- Email: arosteguy.daniel@gmail.com
-- Teléfono: +56 9 7828 6738
+* Pages in the root: `<script defer src="js/trackers.js"></script>`
+* Pages in `products/`: `<script defer src="../js/trackers.js"></script>`
+
+> ⚠️ **Important:** Do not add inline tracker snippets directly into the HTML files.
+> Everything must be managed through `js/trackers.js`.
+
+## 📬 Contact
+
+* Email: arosteguy.daniel@gmail.com
+* Phone: +56 9 7828 6738
 
 ---
+
 *Danny Blue Jet © 2026*
