@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Volcanes de Chile - Danny Blue Jet</title>
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/games.css">
+  <script defer src="../js/trackers.js"></script>
+</head>
+<body>
+  <nav class="navbar">
+    <a href="../index.html" class="navbar-logo">
+      <span class="logo-icon">✈️</span>
+      Danny Blue Jet
+    </a>
+    <ul class="navbar-links">
+      <li><a href="../index.html">Inicio</a></li>
+      <li><a href="../music.html">Música</a></li>
+      <li><a href="../games.html">Tienda</a></li>
+      <li><a href="../index.html#contact">Contacto</a></li>
+    </ul>
+    <button class="hamburger" aria-label="Menú" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <section class="product-detail-section">
+    <div class="product-detail-inner">
+      <div class="product-detail-image" style="background: #f5f5f5;">
+        <img src="../carcassone.png" alt="Carcassonne">
+      </div>
+      <div class="product-detail-info">
+        <a href="../games.html" class="product-detail-back">← Volver a la tienda</a>
+        <h1 class="product-detail-name">Volcanes de Chile</h1>
+        <p class="product-detail-desc">Un juego rápido de quien sobrevive a la erupción</p>
+        <div class="product-detail-long-desc">
+          <h2>Volcanes de Chile</h2>
+          <p>Quién sobrevivirá a las erupciones??</p>
+          <p>Un juego muy bueno</p>
+          <p>En cada turno, el tablero crece y el paisaje cambia: ¿Construirás la ciudad más grande, dominarás los caminos o controlarás los valiosos campos con tus granjeros? La sencillez de sus reglas esconde una profundidad táctica donde cada decisión cuenta.</p>
+          <h3>Especificaciones clave:</h3>
+          <ul>
+            <li>Edad recomendada: 7+ años (ideal para familias y adultos).</li>
+            <li>Número de jugadores: 2 a 5 jugadores.</li>
+            <li>Tiempo de juego: 35 - 45 minutos por partida.</li>
+          </ul>
+          <h3>¿Qué incluye la caja?</h3>
+          <ul>
+            <li>72 Losetas de terreno que garantizan que ninguna partida sea igual a la anterior.</li>
+            <li>40 Seguidores de madera (los icónicos Meeples) en 5 colores.</li>
+            <li>1 Tablero de puntuación.</li>
+            <li>Reglamento ilustrado.</li>
+          </ul>
+        </div>
+        <div class="product-detail-price">$12.990 CLP</div>
+        <a href="https://www.flow.cl/btn.php?token=c8520cabbe0d673cd17f0fd885e9691be976f322" class="product-detail-buy-btn" target="_blank" rel="noopener noreferrer">
+          🛒 Comprar ahora
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer" id="contact">
+    <h2>Contacto</h2>
+    <div class="footer-contacts">
+      <a href="mailto:arosteguy.daniel@gmail.com" class="footer-contact-btn">
+        📧 arosteguy.daniel@gmail.com
+      </a>
+      <a href="tel:+56978286738" class="footer-contact-btn">
+        📞 +56-9-7828-6738
+      </a>
+    </div>
+    <p class="footer-bottom">© 2026 Danny Blue Jet. Todos los derechos reservados.</p>
+  </footer>
+
+  <script src="../js/main.js"></script>
+</body>
+</html>
