@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Volcanes de Chile - Danny Blue Jet</title>
+  <title>Catán - Danny Blue Jet</title>
   <link rel="stylesheet" href="../css/style.css">
   <link rel="stylesheet" href="../css/games.css">
   <script defer src="../js/trackers.js"></script>
@@ -28,33 +28,14 @@
   <section class="product-detail-section">
     <div class="product-detail-inner">
       <div class="product-detail-image" style="background: #f5f5f5;">
-        <img src="../carcassone.png" alt="Carcassonne">
+        <img src="../catan-1.jpg" alt="Catán">
       </div>
       <div class="product-detail-info">
         <a href="../games.html" class="product-detail-back">← Volver a la tienda</a>
-        <h1 class="product-detail-name">Volcanes de Chile</h1>
-        <p class="product-detail-desc">Un juego rápido de quien sobrevive a la erupción</p>
-        <div class="product-detail-long-desc">
-          <h2>Volcanes de Chile</h2>
-          <p>Quién sobrevivirá a las erupciones??</p>
-          <p>Un juego muy bueno</p>
-          <p>En cada turno, el tablero crece y el paisaje cambia: ¿Construirás la ciudad más grande, dominarás los caminos o controlarás los valiosos campos con tus granjeros? La sencillez de sus reglas esconde una profundidad táctica donde cada decisión cuenta.</p>
-          <h3>Especificaciones clave:</h3>
-          <ul>
-            <li>Edad recomendada: 7+ años (ideal para familias y adultos).</li>
-            <li>Número de jugadores: 2 a 5 jugadores.</li>
-            <li>Tiempo de juego: 35 - 45 minutos por partida.</li>
-          </ul>
-          <h3>¿Qué incluye la caja?</h3>
-          <ul>
-            <li>72 Losetas de terreno que garantizan que ninguna partida sea igual a la anterior.</li>
-            <li>40 Seguidores de madera (los icónicos Meeples) en 5 colores.</li>
-            <li>1 Tablero de puntuación.</li>
-            <li>Reglamento ilustrado.</li>
-          </ul>
-        </div>
-        <div class="product-detail-price">$12.990 CLP</div>
-        <a href="https://www.flow.cl/btn.php?token=c8520cabbe0d673cd17f0fd885e9691be976f322" class="product-detail-buy-btn" target="_blank" rel="noopener noreferrer">
+        <h1 class="product-detail-name">Catán</h1>
+        <p class="product-detail-desc">Catán es el fenómeno mundial de la estrategia donde el tablero cambia en cada partida. Tu misión es colonizar la isla recolectando y gestionando recursos como trigo, lana y arcilla. La clave del éxito no solo está en tus construcciones, sino en tu capacidad para negociar e intercambiar materiales con los demás jugadores para expandir tus dominios y alcanzar la victoria.</p>
+        <div class="product-detail-price">$34.990 CLP</div>
+        <a href="https://www.flow.cl/btn.php?token=nbfac4f2be5da16fdf9654963f5aed2786743845" class="product-detail-buy-btn" target="_blank" rel="noopener noreferrer">
           🛒 Comprar ahora
         </a>
       </div>
