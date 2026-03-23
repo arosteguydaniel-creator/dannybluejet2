@@ -27,8 +27,11 @@
 
   <section class="product-detail-section">
     <div class="product-detail-inner">
-      <div class="product-detail-image" style="background: #f5f5f5;">
-        <img src="../catan-1.jpg" alt="Catán">
+      <div class="product-detail-image" id="catan-slider" style="background: #f5f5f5; position: relative;">
+        <img src="catan_1.jpg" alt="Catán" class="slider-img" style="width: 100%; max-width: 320px; display: block; margin: 0 auto; border-radius: 16px; box-shadow: 0 2px 12px rgba(0,0,0,0.08); transition: opacity 0.4s;">
+        <img src="catan_2.jpg" alt="Catán 2" class="slider-img" style="width: 100%; max-width: 320px; display: none; margin: 0 auto; border-radius: 16px; box-shadow: 0 2px 12px rgba(0,0,0,0.08); transition: opacity 0.4s;">
+        <button id="slider-prev" style="position: absolute; left: 10px; top: 50%; transform: translateY(-50%); background: #fff; border: none; border-radius: 50%; width: 36px; height: 36px; font-size: 1.3rem; box-shadow: 0 2px 8px rgba(0,0,0,0.08); cursor: pointer;">&#8592;</button>
+        <button id="slider-next" style="position: absolute; right: 10px; top: 50%; transform: translateY(-50%); background: #fff; border: none; border-radius: 50%; width: 36px; height: 36px; font-size: 1.3rem; box-shadow: 0 2px 8px rgba(0,0,0,0.08); cursor: pointer;">&#8594;</button>
       </div>
       <div class="product-detail-info">
         <a href="../games.html" class="product-detail-back">← Volver a la tienda</a>
@@ -49,6 +52,27 @@
     </div>
   </section>
 
+  <script>
+    // Slider simple para Catán
+    document.addEventListener('DOMContentLoaded', function() {
+      const imgs = document.querySelectorAll('#catan-slider .slider-img');
+      let idx = 0;
+      function showImg(i) {
+        imgs.forEach((img, j) => {
+          img.style.display = (i === j) ? 'block' : 'none';
+        });
+      }
+      showImg(idx);
+      document.getElementById('slider-prev').onclick = function() {
+        idx = (idx - 1 + imgs.length) % imgs.length;
+        showImg(idx);
+      };
+      document.getElementById('slider-next').onclick = function() {
+        idx = (idx + 1) % imgs.length;
+        showImg(idx);
+      };
+    });
+  </script>
   <footer class="footer" id="contact">
     <h2>Contacto</h2>
     <div class="footer-contacts">
