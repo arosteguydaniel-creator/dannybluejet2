@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>La Isla Prohibida</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+    <header>
+        <h1>La Isla Prohibida</h1>
+    </header>
+    <main>
+        <section class="carousel">
+            <img src="la_isla_prohibida_1.webp" alt="La Isla Prohibida - Imagen 1" class="carousel-image" style="max-width: 400px;">
+            <img src="la_isla_prohibida_2.webp" alt="La Isla Prohibida - Imagen 2" class="carousel-image" style="max-width: 400px; display: none;">
+            <div class="carousel-controls">
+                <button onclick="showImage(0)">1</button>
+                <button onclick="showImage(1)">2</button>
+            </div>
+        </section>
+        <section class="product-description">
+            <h2>Descripción</h2>
+            <p>
+                La Isla Prohibida es un emocionante juego cooperativo donde los jugadores trabajan juntos para recuperar tesoros de una isla que se hunde. Ideal para familias y grupos de amigos que disfrutan de la estrategia y el trabajo en equipo.<br><br>
+                <strong>Edad recomendada:</strong> 10+<br>
+                <strong>Número de jugadores:</strong> 2-4<br>
+                <strong>Tiempo de juego:</strong> 30 minutos
+            </p>
+        </section>
+    </main>
+    <script>
+        const images = document.querySelectorAll('.carousel-image');
+        function showImage(idx) {
+            images.forEach((img, i) => {
+                img.style.display = i === idx ? 'block' : 'none';
+            });
+        }
+        showImage(0);
+    </script>
+</body>
+</html>
