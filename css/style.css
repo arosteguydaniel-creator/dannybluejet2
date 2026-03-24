@@ -1,3 +1,35 @@
+/* ===================== BANNER ENVÍO GRATIS ===================== */
+.envio-banner {
+  width: 100vw;
+  min-height: 44px;
+  background: linear-gradient(90deg, #ffde59 0%, #ff914d 50%, #ff4e9b 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+  z-index: 1100;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+
+.envio-banner-text {
+  white-space: nowrap;
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #1e1b4b;
+  letter-spacing: 1px;
+  animation: banner-move 8s linear infinite;
+  text-shadow: 0 2px 8px #fff7, 0 1px 0 #fff8;
+}
+
+@keyframes banner-move {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800;900&display=swap');
 
 :root {

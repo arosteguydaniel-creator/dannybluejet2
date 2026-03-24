@@ -1,3 +1,7 @@
+// ===================== ENVIO BANNER ANIMATION (for dynamic content, optional) =====================
+// Si en el futuro el texto del banner se genera dinámicamente o hay varios mensajes, se puede usar este código para animar varios mensajes.
+// Por ahora, el CSS cubre la animación del texto único.
+
 // ===================== SMOOTH SCROLL =====================
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
   anchor.addEventListener('click', function (e) {
