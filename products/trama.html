@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Trama - Danny Blue Jet</title>
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/games.css">
+  <script defer src="../js/trackers.js"></script>
+</head>
+<body>
+  <div class="envio-banner">
+    <div class="envio-banner-text">
+      🚚 ¡Envío grátis a domicilio en Osorno!
+    </div>
+  </div>
+  <nav class="navbar">
+    <a href="../index.html" class="navbar-logo">
+      <span class="logo-icon">✈️</span>
+      Danny Blue Jet
+    </a>
+    <ul class="navbar-links">
+      <li><a href="../index.html">Inicio</a></li>
+      <li><a href="../music.html">Música</a></li>
+      <li><a href="../games.html">Juegos de Mesa</a></li>
+      <li><a href="../index.html#contact">Contacto</a></li>
+    </ul>
+    <button class="hamburger" aria-label="Menú" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <section class="product-detail-section">
+    <div class="product-detail-inner">
+      <div class="product-detail-image" id="trama-slider" style="background: #f5f5f5; display: flex; gap: 1.5rem; align-items: flex-start; justify-content: center; padding: 1.5rem 0;">
+        <div id="slider-thumbs-trama" style="display: flex; flex-direction: column; gap: 1rem;">
+          <img src="trama_1.png" alt="Trama miniatura 1" class="slider-thumb active" style="width: 56px; height: 56px; object-fit: cover; border-radius: 10px; border: 2px solid #22d3ee; cursor: pointer; box-shadow: 0 2px 8px rgba(0,0,0,0.06);" onclick="document.getElementById('trama-main-img').src='trama_1.png'">
+          <img src="trama_2.png" alt="Trama miniatura 2" class="slider-thumb" style="width: 56px; height: 56px; object-fit: cover; border-radius: 10px; border: 2px solid transparent; cursor: pointer; box-shadow: 0 2px 8px rgba(0,0,0,0.06);" onclick="document.getElementById('trama-main-img').src='trama_2.png'">
+        </div>
+        <div style="flex: 1; display: flex; align-items: center; justify-content: center; min-width: 0;">
+          <img id="trama-main-img" src="trama_1.png" alt="Trama grande" class="slider-img-main" style="width: 100%; max-width: 370px; border-radius: 18px; box-shadow: 0 4px 24px rgba(0,0,0,0.10); background: #fff; transition: opacity 0.4s;">
+        </div>
+      </div>
+      <div class="product-detail-info">
+        <a href="../games.html" class="product-detail-back">← Volver a la tienda</a>
+        <span class="product-category-badge badge-strategy" style="position:static; display:inline-block; margin-bottom:0.5rem;">Estrategia</span>
+        <h1 class="product-detail-name">Trama</h1>
+        <p class="product-detail-desc">En Trama vas a tejer tu propio telar, entrelazando los cordeles de forma estratégica para intentar alcanzar la victoria.<br><br>
+        El Juego De Los Tejidos<br>
+        Las prendas tejidas a mano se consideran piezas únicas por sus colores, bordados y patrones originales, propios del arte de la costura.<br>
+        En Trama vas a tejer tu propio telar, entrelazando los cordeles de forma estratégica para intentar alcanzar la victoria.</p>
+        <div class="product-detail-price">$27.990 CLP</div>
+        <a href="https://www.flow.cl/btn.php?token=fedeff5d47055f2709a96d98cfc46b481f13e236" class="product-detail-buy-btn" target="_blank" rel="noopener noreferrer">
+          🛒 Comprar ahora
+        </a>
+        <ul style="margin: 1.5rem 0 0 0; padding: 0; font-size: 1rem; background: #f3f8ff; border-radius: 12px; padding: 1rem 1.5rem; box-shadow: 0 2px 8px rgba(0,0,0,0.04); max-width: 400px;">
+          <li><b>Edad recomendada:</b> +8</li>
+          <li><b>Número de jugadores:</b> 2-5</li>
+          <li><b>Tiempo de juego:</b> 25 minutos</li>
+          <li><b>Osorno:</b> Entrega a domicilio <span style="color: #2ecc40; font-weight: bold;">sin costo</span>.</li>
+          <li><b>Resto de Chile:</b> Envío <span style="color: #ff4136; font-weight: bold;">por pagar</span>.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer" id="contact">
+    <h2>Contacto</h2>
+    <div class="footer-contacts">
+      <a href="mailto:arosteguy.daniel@gmail.com" class="footer-contact-btn">
+        📧 arosteguy.daniel@gmail.com
+      </a>
+      <a href="tel:+56978286738" class="footer-contact-btn">
+        📞 +56-9-7828-6738
+      </a>
+    </div>
+    <p class="footer-privacy">
+      <a href="../privacidad.html" style="color: rgba(255,255,255,0.6); text-decoration: none; font-size: 0.85rem;">Políticas de Privacidad</a>
+      &nbsp;·&nbsp;
+      <a href="../terminos.html" style="color: rgba(255,255,255,0.6); text-decoration: none; font-size: 0.85rem;">Términos y Condiciones</a>
+    </p>
+    <p class="footer-bottom">© 2026 Danny Blue Jet. Todos los derechos reservados.</p>
+  </footer>
+
+  <script src="../js/main.js"></script>
+</body>
+</html>
