@@ -3,28 +3,83 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Simplicity</title>
+    <title>Simplicity - Danny Blue Jet</title>
     <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/games.css">
+    <script defer src="../js/trackers.js"></script>
 </head>
 <body>
-    <div class="product-page">
-        <h1>Simplicity</h1>
-        <div class="product-images">
-            <!-- Aquí puedes agregar imágenes del juego en la carpeta /products/simplicity/ -->
-        </div>
-        <div class="product-info">
-            <p class="product-description">
-                Simplicity es una ciudad que está creciendo rápidamente. Semana tras semana surgen nuevos barrios, y es urgente encontrar una persona que se encargue de planificar la ciudad.<br><br>
-                A lo largo de cinco rondas cada participante construirá en los distintos terrenos, buscando formar los barrios más convenientes para obtener puntos.
-            </p>
-            <ul class="product-details">
-                <li><strong>Precio:</strong> $22.990</li>
-                <li><strong>Jugadores:</strong> 2 - 6</li>
-                <li><strong>Edad:</strong> +10</li>
-                <li><strong>Duración:</strong> 20 min</li>
-            </ul>
-            <a class="buy-button" href="https://www.flow.cl/btn.php?token=t34c355cb7be6c6f959fed975104c0d52ceebd65" target="_blank">Comprar ahora</a>
+    <div class="envio-banner">
+        <div class="envio-banner-text">
+            🚚 ¡Envío grátis a domicilio en Osorno!
         </div>
     </div>
+    <nav class="navbar">
+        <a href="../index.html" class="navbar-logo">
+            <span class="logo-icon">✈️</span>
+            Danny Blue Jet
+        </a>
+        <ul class="navbar-links">
+            <li><a href="../index.html">Inicio</a></li>
+            <li><a href="../music.html">Música</a></li>
+            <li><a href="../games.html">Juegos de Mesa</a></li>
+            <li><a href="../index.html#contact">Contacto</a></li>
+        </ul>
+        <button class="hamburger" aria-label="Menú" aria-expanded="false">
+            <span></span><span></span><span></span>
+        </button>
+    </nav>
+
+    <section class="product-detail-section">
+        <div class="product-detail-inner">
+            <div class="product-detail-image" id="simplicity-slider" style="background: #f5f5f5; display: flex; gap: 1.5rem; align-items: flex-start; justify-content: center; padding: 1.5rem 0;">
+                <div id="slider-thumbs-simplicity" style="display: flex; flex-direction: column; gap: 1rem;">
+                    <img src="simplicity/simplicity-1.png" alt="Simplicity miniatura 1" class="slider-thumb active" style="width: 56px; height: 56px; object-fit: cover; border-radius: 10px; border: 2px solid #22d3ee; cursor: pointer; box-shadow: 0 2px 8px rgba(0,0,0,0.06);">
+                    <!-- Agrega más miniaturas si tienes más imágenes -->
+                </div>
+                <div style="flex: 1; display: flex; align-items: center; justify-content: center; min-width: 0;">
+                    <img src="simplicity/simplicity-1.png" alt="Simplicity grande" class="slider-img-main" style="width: 100%; max-width: 370px; border-radius: 18px; box-shadow: 0 4px 24px rgba(0,0,0,0.10); background: #fff; transition: opacity 0.4s;">
+                </div>
+            </div>
+            <div class="product-detail-info">
+                <a href="../games.html" class="product-detail-back">← Volver a la tienda</a>
+                <span class="product-category-badge badge-strategy" style="position:static; display:inline-block; margin-bottom:0.5rem;">Estrategia</span>
+                <h1 class="product-detail-name">Simplicity</h1>
+                <p class="product-detail-desc">Simplicity es una ciudad que está creciendo rápidamente. Semana tras semana surgen nuevos barrios, y es urgente encontrar una persona que se encargue de planificar la ciudad.<br><br>
+                A lo largo de cinco rondas cada participante construirá en los distintos terrenos, buscando formar los barrios más convenientes para obtener puntos.</p>
+                <div class="product-detail-price">$22.990 CLP</div>
+                <a href="https://www.flow.cl/btn.php?token=t34c355cb7be6c6f959fed975104c0d52ceebd65" class="product-detail-buy-btn" target="_blank" rel="noopener noreferrer">
+                    🛒 Comprar ahora
+                </a>
+                <ul style="margin: 1.5rem 0 0 0; padding: 0; font-size: 1rem; background: #f3f8ff; border-radius: 12px; padding: 1rem 1.5rem; box-shadow: 0 2px 8px rgba(0,0,0,0.04); max-width: 400px;">
+                    <li><b>Edad recomendada:</b> +10</li>
+                    <li><b>Número de jugadores:</b> 2-6</li>
+                    <li><b>Tiempo de juego:</b> 20 minutos</li>
+                    <li><b>Osorno:</b> Entrega a domicilio <span style="color: #2ecc40; font-weight: bold;">sin costo</span>.</li>
+                    <li><b>Resto de Chile:</b> Envío <span style="color: #ff4136; font-weight: bold;">por pagar</span>.</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer" id="contact">
+        <h2>Contacto</h2>
+        <div class="footer-contacts">
+            <a href="mailto:arosteguy.daniel@gmail.com" class="footer-contact-btn">
+                📧 arosteguy.daniel@gmail.com
+            </a>
+            <a href="tel:+56978286738" class="footer-contact-btn">
+                📞 +56-9-7828-6738
+            </a>
+        </div>
+        <p class="footer-privacy">
+            <a href="../privacidad.html" style="color: rgba(255,255,255,0.6); text-decoration: none; font-size: 0.85rem;">Políticas de Privacidad</a>
+            &nbsp;·&nbsp;
+            <a href="../terminos.html" style="color: rgba(255,255,255,0.6); text-decoration: none; font-size: 0.85rem;">Términos y Condiciones</a>
+        </p>
+        <p class="footer-bottom">© 2026 Danny Blue Jet. Todos los derechos reservados.</p>
+    </footer>
+
+    <script src="../js/main.js"></script>
 </body>
 </html>
