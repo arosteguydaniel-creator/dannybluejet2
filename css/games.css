@@ -287,3 +287,63 @@
   background: linear-gradient(135deg, #1e3a8a, #2563eb);
   padding: 3rem 2rem !important;
 }
+
+/* ===================== WhatsApp CHAT BUTTON ===================== */
+.whatsapp-button {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  width: 60px;
+  height: 60px;
+  background: linear-gradient(135deg, #25d366, #128c7e);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 8px 24px rgba(37, 211, 102, 0.4);
+  z-index: 999;
+  text-decoration: none;
+  color: white;
+  transition: all 0.3s ease;
+  animation: float 3s ease-in-out infinite;
+}
+
+.whatsapp-button svg {
+  width: 32px;
+  height: 32px;
+  fill: currentColor;
+}
+
+.whatsapp-button:hover {
+  width: 70px;
+  height: 70px;
+  bottom: 35px;
+  right: 25px;
+  box-shadow: 0 12px 32px rgba(37, 211, 102, 0.5);
+  transform: scale(1.1);
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-15px);
+  }
+}
+
+@media (max-width: 768px) {
+  .whatsapp-button {
+    width: 55px;
+    height: 55px;
+    bottom: 20px;
+    right: 20px;
+  }
+  
+  .whatsapp-button:hover {
+    width: 65px;
+    height: 65px;
+    bottom: 22px;
+    right: 18px;
+  }
+}
