@@ -75,7 +75,9 @@ function initTikTokPixel() {
         var s = document.getElementsByTagName('script')[0];
         s.parentNode.insertBefore(t, s);
       }, page: function () {
-        try { window.ttq && window.ttq.instance && window.ttq.instance(TRACKER_CONFIG.tiktokPixelId).page(); } catch (e) { /* noop */ }
+        ttq._i.push(['page']);
+      }, track: function (e, t) {
+        ttq._i.push(['track', e, t]);
       } };
       window.ttq = ttq;
     }
@@ -92,6 +94,8 @@ function trackTikTokEvent(eventName, params) {
   try {
     if (window.ttq && typeof window.ttq.track === 'function') {
       window.ttq.track(eventName, params || {});
+    } else if (window.ttq && Array.isArray(window.ttq._i)) {
+      window.ttq._i.push(['track', eventName, params || {}]);
     } else {
       console.warn('[trackers] TikTok ttq not ready for event:', eventName);
     }
