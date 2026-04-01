@@ -82,8 +82,21 @@ function initTikTokPixel() {
 
     window.ttq.load(TRACKER_CONFIG.tiktokPixelId);
     window.ttq.page();
+    window.ttq.track('PageView');
   } catch (e) {
     console.warn('[trackers] TikTok Pixel init error:', e);
+  }
+}
+
+function trackTikTokEvent(eventName, params) {
+  try {
+    if (window.ttq && typeof window.ttq.track === 'function') {
+      window.ttq.track(eventName, params || {});
+    } else {
+      console.warn('[trackers] TikTok ttq not ready for event:', eventName);
+    }
+  } catch (e) {
+    console.warn('[trackers] TikTok track error:', e);
   }
 }
 
@@ -113,6 +126,12 @@ function fireOnce() {
   trackersFired = true;
   removeEarlyListeners();
   initAllTrackers();
+}
+
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', fireOnce);
+} else {
+  fireOnce();
 }
 
 var earlyEvents = ['mousedown', 'keydown', 'touchstart', 'scroll', 'click'];

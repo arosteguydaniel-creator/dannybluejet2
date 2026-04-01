@@ -51,6 +51,17 @@ function saveCart() {
   localStorage.setItem('dbj_cart', JSON.stringify(cart));
 }
 
+function trackCartEvent(name, price) {
+  if (typeof trackTikTokEvent === 'function') {
+    trackTikTokEvent('AddToCart', {
+      content_name: name,
+      content_type: 'product',
+      currency: 'CLP',
+      value: price
+    });
+  }
+}
+
 function addToCart(name, price, emoji) {
   const existing = cart.find(item => item.name === name);
   if (existing) {
@@ -60,6 +71,10 @@ function addToCart(name, price, emoji) {
   }
   saveCart();
   updateCartUI();
+
+  // TikTok AddToCart event
+  trackCartEvent(name, price);
+
   // Brief visual feedback
   const cartSidebar = document.getElementById('cartSidebar');
   if (cartSidebar) openCart();
@@ -152,6 +167,49 @@ document.addEventListener('DOMContentLoaded', () => {
   const overlay = document.getElementById('cartOverlay');
   if (overlay) overlay.addEventListener('click', closeCart);
 
+  // Track product-card clicks as ViewContent (if present)
+  document.querySelectorAll('.add-to-cart-btn').forEach(link => {
+    link.addEventListener('click', function () {
+      const card = link.closest('.product-card');
+      if (card) {
+        const name = card.querySelector('.product-name')?.textContent?.trim() || 'producto';
+        const priceText = card.querySelector('.product-price')?.textContent?.replace(/[\D]/g, '') || '0';
+        const value = parseFloat(priceText) || 0;
+        if (typeof trackTikTokEvent === 'function') {
+          trackTikTokEvent('ViewContent', {
+            content_name: name,
+            content_type: 'product',
+            currency: 'CLP',
+            value: value
+          });
+        }
+      }
+    });
+  });
+
+  // Product detail buy button should send CompletePayment intent before redirecting
+  document.querySelectorAll('.product-detail-buy-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const priceText = btn.closest('.product-detail-info')?.querySelector('.product-detail-price')?.textContent?.replace(/[\D]/g, '') || '0';
+      const name = btn.closest('.product-detail-info')?.querySelector('.product-detail-name')?.textContent?.trim() || 'producto';
+      const value = parseFloat(priceText) || 0;
+      if (typeof trackTikTokEvent === 'function') {
+        trackTikTokEvent('InitiateCheckout', {
+          content_name: name,
+          content_type: 'product',
+          currency: 'CLP',
+          value: value
+        });
+        trackTikTokEvent('CompletePayment', {
+          content_name: name,
+          content_type: 'product',
+          currency: 'CLP',
+          value: value
+        });
+      }
+    });
+  });
+
   // Checkout
   const checkoutBtn = document.getElementById('checkoutBtn');
   if (checkoutBtn) {
@@ -160,7 +218,22 @@ document.addEventListener('DOMContentLoaded', () => {
         alert('Tu carrito está vacío.');
         return;
       }
-      alert(`¡Gracias por tu compra! Total: $${cart.reduce((s, i) => s + i.qty * i.price, 0).toFixed(2)}`);
+      const total = cart.reduce((s, i) => s + i.qty * i.price, 0).toFixed(2);
+      if (typeof trackTikTokEvent === 'function') {
+        trackTikTokEvent('InitiateCheckout', {
+          content_type: 'cart',
+          currency: 'CLP',
+          value: parseFloat(total)
+        });
+      }
+      alert(`¡Gracias por tu compra! Total: $${total}`);
+      if (typeof trackTikTokEvent === 'function') {
+        trackTikTokEvent('CompletePayment', {
+          content_type: 'cart',
+          currency: 'CLP',
+          value: parseFloat(total)
+        });
+      }
       cart = [];
       saveCart();
       updateCartUI();
