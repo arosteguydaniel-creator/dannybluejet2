@@ -29,7 +29,7 @@ T = {
         see_game="Ver el juego", bgg="Ver en BoardGameGeek", more_games="Todos mis juegos",
         my_games="Mis juegos", other_games="Otros trabajos", listen="Escuchar mi música",
         music="Música", read_bio="Leer mi bio", contact="Contacto", write_me="Escríbeme",
-        role="Rol", publisher="Editorial", players="Jugadores", age="Edad",
+        role="Rol", publisher="Editorial", players="Jugadores", age="Edad", duration="Duración", designer="Diseño", series="Serie",
         credits="Créditos", links="Enlaces", back="← Todos los juegos",
         featured="Destacado", play_video="Reproducir video",
         music_cta="Canciones, videos y shows en vivo.",
@@ -40,7 +40,7 @@ T = {
         see_game="See the game", bgg="View on BoardGameGeek", more_games="All my games",
         my_games="My games", other_games="Other works", listen="Listen to my music",
         music="Music", read_bio="Read my bio", contact="Contact", write_me="Write to me",
-        role="Role", publisher="Publisher", players="Players", age="Age",
+        role="Role", publisher="Publisher", players="Players", age="Age", duration="Playing time", designer="Designer", series="Series",
         credits="Credits", links="Links", back="← All games",
         featured="Featured", play_video="Play video",
         music_cta="Songs, videos and live shows.",
@@ -51,7 +51,7 @@ T = {
         see_game="作品を見る", bgg="BoardGameGeekで見る", more_games="すべての作品",
         my_games="作品", other_games="その他の作品", listen="音楽を聴く",
         music="音楽", read_bio="プロフィールを読む", contact="お問い合わせ", write_me="メールを送る",
-        role="担当", publisher="出版社", players="プレイ人数", age="対象年齢",
+        role="担当", publisher="出版社", players="プレイ人数", age="対象年齢", duration="プレイ時間", designer="デザイン", series="シリーズ",
         credits="クレジット", links="リンク", back="← 作品一覧",
         featured="注目作", play_video="動画を再生",
         music_cta="楽曲、ミュージックビデオ、ライブ。",
@@ -89,7 +89,8 @@ BIO_LONG = {
 GAMES = [
     dict(
         slug="my-extreme-skatepark", title="My Extreme Skatepark", bgg=479479, featured=True,
-        cover=None, cover_class="cover-mes",
+        cover="/images/mes.webp", card_cover="/images/mes-card.webp", cover_class="cover-mes",
+        alt_title="マイ エクストリーム スケートパーク", series="itten Funbrick Series",
         role={"es": "Co-diseño con Naotaka Shimamoto", "en": "Co-designed with Naotaka Shimamoto", "ja": "Naotaka Shimamoto氏との共同デザイン"},
         publisher="itten (Japón)", publisher_i18n={"en": "itten (Japan)", "ja": "itten（日本）"},
         teaser={
@@ -100,7 +101,7 @@ GAMES = [
     ),
     dict(
         slug="armaduras-musicales", title="Armaduras Musicales", bgg=476924,
-        cover=None, cover_class="cover-armaduras",
+        cover="/images/armaduras-musicales.webp", cover_class="cover-armaduras",
         role={"es": "Diseño · La Vaca del Tablero", "en": "Design · La Vaca del Tablero", "ja": "デザイン・La Vaca del Tablero"},
         publisher="La Vaca del Tablero",
         teaser={
@@ -116,25 +117,25 @@ GAMES = [
     ),
     dict(
         slug="batalla-de-coronas", title="Batalla de Coronas", bgg=421255,
-        cover="/batallas-caja-web.png", cover_class="cover-batalla",
+        cover="/images/batalla-de-coronas.webp", cover_class="cover-batalla", designer="Pedro Guajardo Cordescu",
         role={"es": "Edición · La Vaca del Tablero", "en": "Editing · La Vaca del Tablero", "ja": "編集・La Vaca del Tablero"},
-        publisher="La Vaca del Tablero", players="2–6", age="10+",
+        publisher="La Vaca del Tablero", players="2", age="10+", duration="20–45 min",
         teaser={
             "es": "Enfrentamientos tácticos y partidas rápidas.",
             "en": "Tactical clashes and quick games.",
             "ja": "戦術的な対決が楽しめる、短時間で遊べるゲーム。",
         },
         body={
-            "es": ["<em>Batalla de Coronas</em> es un juego de enfrentamientos tácticos y partidas rápidas que combina estrategia, sorpresa y diversión para grupos de amigos y familia. Lo edité y publiqué con La Vaca del Tablero."],
-            "en": ["<em>Batalla de Coronas</em> (“Battle of Crowns”) is a game of tactical clashes and quick rounds that mixes strategy, surprise and fun for friends and family. I edited and published it with La Vaca del Tablero."],
-            "ja": ["『Batalla de Coronas』（王冠の戦い）は、戦略とサプライズが詰まった、友人や家族と短時間で楽しめる対戦ゲームです。La Vaca del Tablero で編集・出版を担当しました。"],
+            "es": ["<em>Batalla de Coronas</em> es un juego de enfrentamientos tácticos y partidas rápidas que combina estrategia, sorpresa y diversión para grupos de amigos y familia. Es un diseño de Pedro Guajardo Cordescu, que edité y publiqué con La Vaca del Tablero."],
+            "en": ["<em>Batalla de Coronas</em> (“Battle of Crowns”) is a game of tactical clashes and quick rounds that mixes strategy, surprise and fun for friends and family. It was designed by Pedro Guajardo Cordescu; I edited and published it with La Vaca del Tablero."],
+            "ja": ["『Batalla de Coronas』（王冠の戦い）は、戦略とサプライズが詰まった、友人や家族と短時間で楽しめる対戦ゲームです。デザインは Pedro Guajardo Cordescu 氏。La Vaca del Tablero で編集・出版を担当しました。"],
         },
     ),
     dict(
         slug="de-cero-a-ceo", title="De Cero a CEO", bgg=476764,
-        cover=None, cover_class="cover-ceo",
+        cover="/images/de-cero-a-ceo.webp", cover_class="cover-ceo",
         role={"es": "Diseño", "en": "Design", "ja": "デザイン"},
-        publisher="Universidad de Los Lagos",
+        publisher="La Vaca del Tablero · Universidad de Los Lagos",
         teaser={
             "es": "Un juego para la carrera de Ingeniería Comercial de la Universidad de Los Lagos.",
             "en": "A game for the business administration program at Universidad de Los Lagos.",
@@ -316,8 +317,9 @@ def page(lang, path, title, description, body, active=None, og_image="/images/da
 
 
 def cover(g, big=False):
-    if g.get("cover"):
-        return f'<img class="cover-img" src="{g["cover"]}" alt="{esc(g["title"])}" loading="lazy">'
+    src = g["cover"] if big else g.get("card_cover", g.get("cover"))
+    if src:
+        return f'<img class="cover-img{" big" if big else ""}" src="{src}" alt="{esc(g["title"])}" loading="lazy">'
     # Placeholder cover until a real image exists in /images/ (see README).
     return f'<div class="cover-art {g["cover_class"]}{" big" if big else ""}" role="img" aria-label="{esc(g["title"])}"><span>{esc(g["title"])}</span></div>'
 
@@ -481,10 +483,16 @@ def games_index(lang):
 def game_page(lang, g):
     t = T[lang]
     facts = [(t["role"], g["role"][lang]), (t["publisher"], g.get("publisher_i18n", {}).get(lang, g["publisher"]))]
+    if g.get("designer"):
+        facts.insert(0, (t["designer"], g["designer"]))
+    if g.get("series"):
+        facts.append((t["series"], g["series"]))
     if g.get("players"):
         facts.append((t["players"], g["players"]))
     if g.get("age"):
         facts.append((t["age"], g["age"]))
+    if g.get("duration"):
+        facts.append((t["duration"], g["duration"]))
     facts_html = "\n".join(f"            <div><dt>{k}</dt><dd>{v}</dd></div>" for k, v in facts)
     links = [(t["bgg"], f"https://boardgamegeek.com/boardgame/{g['bgg']}")]
     if g["slug"] == "my-extreme-skatepark":
@@ -497,7 +505,7 @@ def game_page(lang, g):
           <p>{b['spiel']}</p>
           <h2>{t['credits']}</h2>
           <ul>
-            <li>{b['design']}: Naotaka Shimamoto, Danny Blue Jet (Daniel Arosteguy)</li>
+            <li>{b['design']}: Daniel Arosteguy Pino (Danny Blue Jet), Naotaka Shimamoto</li>
             <li>{t['publisher']}: itten</li>
           </ul>
           <!-- TODO: agregar galería de fotos y video de partida cuando estén disponibles (images/mes-*.jpg) -->
@@ -522,6 +530,7 @@ def game_page(lang, g):
           <a class="back" href="{url(lang, 'juegos/')}">{t['back']}</a>
           {"<p class='eyebrow'>SPIEL Essen 2026</p>" if g.get('featured') else ''}
           <h1>{esc(g['title'])}</h1>
+          {f'<p class="alt-title" lang="ja">{g["alt_title"]}</p>' if lang == "ja" and g.get("alt_title") else ""}
           <dl class="facts">
 {facts_html}
           </dl>
