@@ -1,35 +1,213 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://www.dannybluejet.com/</loc>
-    <lastmod>2026-04-03</lastmod>
-    <priority>1.0</priority>
+    <lastmod>2026-10-07</lastmod>
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.dannybluejet.com/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.dannybluejet.com/en/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://www.dannybluejet.com/ja/"/>
   </url>
   <url>
-    <loc>https://www.dannybluejet.com/games.html</loc>
-    <lastmod>2026-04-03</lastmod>
-    <priority>0.9</priority>
+    <loc>https://www.dannybluejet.com/en/</loc>
+    <lastmod>2026-10-07</lastmod>
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.dannybluejet.com/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.dannybluejet.com/en/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://www.dannybluejet.com/ja/"/>
   </url>
   <url>
-    <loc>https://www.dannybluejet.com/music.html</loc>
-    <lastmod>2026-04-03</lastmod>
-    <priority>0.8</priority>
+    <loc>https://www.dannybluejet.com/ja/</loc>
+    <lastmod>2026-10-07</lastmod>
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.dannybluejet.com/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.dannybluejet.com/en/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://www.dannybluejet.com/ja/"/>
   </url>
-
-  <url><loc>https://www.dannybluejet.com/products/mala-leche-con-aji.html</loc><priority>0.7</priority></url>
-  <url><loc>https://www.dannybluejet.com/products/mala-leche-con-platano.html</loc><priority>0.7</priority></url>
-  <url><loc>https://www.dannybluejet.com/products/party-box.html</loc><priority>0.7</priority></url>
-  <url><loc>https://www.dannybluejet.com/products/puzzle-master.html</loc><priority>0.7</priority></url>
-  <url><loc>https://www.dannybluejet.com/products/simplicity.html</loc><priority>0.7</priority></url>
-  <url><loc>https://www.dannybluejet.com/products/trama.html</loc><priority>0.7</priority></url>
-  <url><loc>https://www.dannybluejet.com/products/volcanes.html</loc><priority>0.7</priority></url>
-  <url><loc>https://www.dannybluejet.com/products/carcassonne.html</loc><priority>0.7</priority></url>
-  <url><loc>https://www.dannybluejet.com/products/catan.html</loc><priority>0.7</priority></url>
-  <url><loc>https://www.dannybluejet.com/products/dixit.html</loc><priority>0.7</priority></url>
-  <url><loc>https://www.dannybluejet.com/products/domino-deluxe.html</loc><priority>0.7</priority></url>
-  <url><loc>https://www.dannybluejet.com/products/family-night.html</loc><priority>0.7</priority></url>
-  <url><loc>https://www.dannybluejet.com/products/la-isla-prohibida.html</loc><priority>0.7</priority></url>
-  <url><loc>https://www.dannybluejet.com/products/greed-taproom.html</loc><priority>0.7</priority></url>
-
+  <url>
+    <loc>https://www.dannybluejet.com/sobre-mi.html</loc>
+    <lastmod>2026-10-07</lastmod>
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.dannybluejet.com/sobre-mi.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.dannybluejet.com/en/sobre-mi.html"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://www.dannybluejet.com/ja/sobre-mi.html"/>
+  </url>
+  <url>
+    <loc>https://www.dannybluejet.com/en/sobre-mi.html</loc>
+    <lastmod>2026-10-07</lastmod>
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.dannybluejet.com/sobre-mi.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.dannybluejet.com/en/sobre-mi.html"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://www.dannybluejet.com/ja/sobre-mi.html"/>
+  </url>
+  <url>
+    <loc>https://www.dannybluejet.com/ja/sobre-mi.html</loc>
+    <lastmod>2026-10-07</lastmod>
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.dannybluejet.com/sobre-mi.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.dannybluejet.com/en/sobre-mi.html"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://www.dannybluejet.com/ja/sobre-mi.html"/>
+  </url>
+  <url>
+    <loc>https://www.dannybluejet.com/juegos/</loc>
+    <lastmod>2026-10-07</lastmod>
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.dannybluejet.com/juegos/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.dannybluejet.com/en/juegos/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://www.dannybluejet.com/ja/juegos/"/>
+  </url>
+  <url>
+    <loc>https://www.dannybluejet.com/en/juegos/</loc>
+    <lastmod>2026-10-07</lastmod>
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.dannybluejet.com/juegos/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.dannybluejet.com/en/juegos/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://www.dannybluejet.com/ja/juegos/"/>
+  </url>
+  <url>
+    <loc>https://www.dannybluejet.com/ja/juegos/</loc>
+    <lastmod>2026-10-07</lastmod>
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.dannybluejet.com/juegos/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.dannybluejet.com/en/juegos/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://www.dannybluejet.com/ja/juegos/"/>
+  </url>
+  <url>
+    <loc>https://www.dannybluejet.com/juegos/my-extreme-skatepark.html</loc>
+    <lastmod>2026-10-07</lastmod>
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.dannybluejet.com/juegos/my-extreme-skatepark.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.dannybluejet.com/en/juegos/my-extreme-skatepark.html"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://www.dannybluejet.com/ja/juegos/my-extreme-skatepark.html"/>
+  </url>
+  <url>
+    <loc>https://www.dannybluejet.com/en/juegos/my-extreme-skatepark.html</loc>
+    <lastmod>2026-10-07</lastmod>
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.dannybluejet.com/juegos/my-extreme-skatepark.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.dannybluejet.com/en/juegos/my-extreme-skatepark.html"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://www.dannybluejet.com/ja/juegos/my-extreme-skatepark.html"/>
+  </url>
+  <url>
+    <loc>https://www.dannybluejet.com/ja/juegos/my-extreme-skatepark.html</loc>
+    <lastmod>2026-10-07</lastmod>
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.dannybluejet.com/juegos/my-extreme-skatepark.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.dannybluejet.com/en/juegos/my-extreme-skatepark.html"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://www.dannybluejet.com/ja/juegos/my-extreme-skatepark.html"/>
+  </url>
+  <url>
+    <loc>https://www.dannybluejet.com/juegos/armaduras-musicales.html</loc>
+    <lastmod>2026-10-07</lastmod>
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.dannybluejet.com/juegos/armaduras-musicales.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.dannybluejet.com/en/juegos/armaduras-musicales.html"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://www.dannybluejet.com/ja/juegos/armaduras-musicales.html"/>
+  </url>
+  <url>
+    <loc>https://www.dannybluejet.com/en/juegos/armaduras-musicales.html</loc>
+    <lastmod>2026-10-07</lastmod>
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.dannybluejet.com/juegos/armaduras-musicales.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.dannybluejet.com/en/juegos/armaduras-musicales.html"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://www.dannybluejet.com/ja/juegos/armaduras-musicales.html"/>
+  </url>
+  <url>
+    <loc>https://www.dannybluejet.com/ja/juegos/armaduras-musicales.html</loc>
+    <lastmod>2026-10-07</lastmod>
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.dannybluejet.com/juegos/armaduras-musicales.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.dannybluejet.com/en/juegos/armaduras-musicales.html"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://www.dannybluejet.com/ja/juegos/armaduras-musicales.html"/>
+  </url>
+  <url>
+    <loc>https://www.dannybluejet.com/juegos/batalla-de-coronas.html</loc>
+    <lastmod>2026-10-07</lastmod>
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.dannybluejet.com/juegos/batalla-de-coronas.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.dannybluejet.com/en/juegos/batalla-de-coronas.html"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://www.dannybluejet.com/ja/juegos/batalla-de-coronas.html"/>
+  </url>
+  <url>
+    <loc>https://www.dannybluejet.com/en/juegos/batalla-de-coronas.html</loc>
+    <lastmod>2026-10-07</lastmod>
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.dannybluejet.com/juegos/batalla-de-coronas.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.dannybluejet.com/en/juegos/batalla-de-coronas.html"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://www.dannybluejet.com/ja/juegos/batalla-de-coronas.html"/>
+  </url>
+  <url>
+    <loc>https://www.dannybluejet.com/ja/juegos/batalla-de-coronas.html</loc>
+    <lastmod>2026-10-07</lastmod>
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.dannybluejet.com/juegos/batalla-de-coronas.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.dannybluejet.com/en/juegos/batalla-de-coronas.html"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://www.dannybluejet.com/ja/juegos/batalla-de-coronas.html"/>
+  </url>
+  <url>
+    <loc>https://www.dannybluejet.com/juegos/de-cero-a-ceo.html</loc>
+    <lastmod>2026-10-07</lastmod>
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.dannybluejet.com/juegos/de-cero-a-ceo.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.dannybluejet.com/en/juegos/de-cero-a-ceo.html"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://www.dannybluejet.com/ja/juegos/de-cero-a-ceo.html"/>
+  </url>
+  <url>
+    <loc>https://www.dannybluejet.com/en/juegos/de-cero-a-ceo.html</loc>
+    <lastmod>2026-10-07</lastmod>
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.dannybluejet.com/juegos/de-cero-a-ceo.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.dannybluejet.com/en/juegos/de-cero-a-ceo.html"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://www.dannybluejet.com/ja/juegos/de-cero-a-ceo.html"/>
+  </url>
+  <url>
+    <loc>https://www.dannybluejet.com/ja/juegos/de-cero-a-ceo.html</loc>
+    <lastmod>2026-10-07</lastmod>
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.dannybluejet.com/juegos/de-cero-a-ceo.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.dannybluejet.com/en/juegos/de-cero-a-ceo.html"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://www.dannybluejet.com/ja/juegos/de-cero-a-ceo.html"/>
+  </url>
+  <url>
+    <loc>https://www.dannybluejet.com/la-vaca-del-tablero.html</loc>
+    <lastmod>2026-10-07</lastmod>
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.dannybluejet.com/la-vaca-del-tablero.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.dannybluejet.com/en/la-vaca-del-tablero.html"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://www.dannybluejet.com/ja/la-vaca-del-tablero.html"/>
+  </url>
+  <url>
+    <loc>https://www.dannybluejet.com/en/la-vaca-del-tablero.html</loc>
+    <lastmod>2026-10-07</lastmod>
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.dannybluejet.com/la-vaca-del-tablero.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.dannybluejet.com/en/la-vaca-del-tablero.html"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://www.dannybluejet.com/ja/la-vaca-del-tablero.html"/>
+  </url>
+  <url>
+    <loc>https://www.dannybluejet.com/ja/la-vaca-del-tablero.html</loc>
+    <lastmod>2026-10-07</lastmod>
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.dannybluejet.com/la-vaca-del-tablero.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.dannybluejet.com/en/la-vaca-del-tablero.html"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://www.dannybluejet.com/ja/la-vaca-del-tablero.html"/>
+  </url>
+  <url>
+    <loc>https://www.dannybluejet.com/musica.html</loc>
+    <lastmod>2026-10-07</lastmod>
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.dannybluejet.com/musica.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.dannybluejet.com/en/musica.html"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://www.dannybluejet.com/ja/musica.html"/>
+  </url>
+  <url>
+    <loc>https://www.dannybluejet.com/en/musica.html</loc>
+    <lastmod>2026-10-07</lastmod>
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.dannybluejet.com/musica.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.dannybluejet.com/en/musica.html"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://www.dannybluejet.com/ja/musica.html"/>
+  </url>
+  <url>
+    <loc>https://www.dannybluejet.com/ja/musica.html</loc>
+    <lastmod>2026-10-07</lastmod>
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.dannybluejet.com/musica.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.dannybluejet.com/en/musica.html"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://www.dannybluejet.com/ja/musica.html"/>
+  </url>
+  <url>
+    <loc>https://www.dannybluejet.com/contacto.html</loc>
+    <lastmod>2026-10-07</lastmod>
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.dannybluejet.com/contacto.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.dannybluejet.com/en/contacto.html"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://www.dannybluejet.com/ja/contacto.html"/>
+  </url>
+  <url>
+    <loc>https://www.dannybluejet.com/en/contacto.html</loc>
+    <lastmod>2026-10-07</lastmod>
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.dannybluejet.com/contacto.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.dannybluejet.com/en/contacto.html"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://www.dannybluejet.com/ja/contacto.html"/>
+  </url>
+  <url>
+    <loc>https://www.dannybluejet.com/ja/contacto.html</loc>
+    <lastmod>2026-10-07</lastmod>
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.dannybluejet.com/contacto.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.dannybluejet.com/en/contacto.html"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://www.dannybluejet.com/ja/contacto.html"/>
+  </url>
 </urlset>

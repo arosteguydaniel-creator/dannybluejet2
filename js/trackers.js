@@ -124,6 +124,7 @@ function initAllTrackers() {
 }
 
 /* Start on idle, falling back to a 3-second timeout, or on first user input */
+var earlyEvents = ['mousedown', 'keydown', 'touchstart', 'scroll', 'click'];
 var trackersFired = false;
 function fireOnce() {
   if (trackersFired) return;
@@ -138,7 +139,6 @@ if (document.readyState === 'loading') {
   fireOnce();
 }
 
-var earlyEvents = ['mousedown', 'keydown', 'touchstart', 'scroll', 'click'];
 function removeEarlyListeners() {
   earlyEvents.forEach(function (ev) {
     document.removeEventListener(ev, fireOnce, { passive: true, capture: true });

@@ -1,87 +1,66 @@
-# 🎲🎵 Danny Blue Jet
+# 🗻 Danny Blue Jet
 
-The official website for Danny Blue Jet — a platform that combines an online board game store and a music section featuring a player, event info, and ticket sales.
+Sitio de autor de Danny Blue Jet (Daniel Arosteguy): diseñador de juegos de mesa y músico.
+Sitio estático en tres idiomas, publicado con GitHub Pages en www.dannybluejet.com.
 
-## 🌐 Pages
+## Estructura
 
-| Page | Description |
+| Ruta | Idioma |
 | --- | --- |
-| `index.html` | Main Page / Landing |
-| `games.html` | Online board game store |
-| `music.html` | Music section, events, and ticket sales |
+| `/` | Español (por defecto) |
+| `/en/` | Inglés |
+| `/ja/` | Japonés |
 
-## 🎨 Aesthetics
-
-* **Colors**: Bright blue, pink/magenta, red accent, and white.
-* **Typography**: Poppins (Google Fonts).
-* **Design**: Modern, vibrant, and responsive.
-
-## 🛒 E-commerce Flow: Direct Purchase
-To optimize the user experience and ensure low-friction transactions, the platform utilizes a Direct-to-Checkout architecture:
-
-Product Selection: Users browse the catalog in games.html, which is built using CSS Grid for a fully responsive, mobile-first experience.
-
-Streamlined Interaction: Each product is linked directly to a specific checkout endpoint using “Flow” payment links.
-
-
-## 🛠️ Technologies
-
-* HTML5
-* CSS3 (variables, flexbox, grid)
-* Vanilla JavaScript
-
-## 🚀 How to use
-
-1. Clone the repository.
-2. Open `index.html` in your browser.
-3. Enjoy the site!
-
-## 📁 Structure
+Cada idioma tiene las mismas páginas, con el mismo nombre de archivo:
 
 ```
-dannybluejet2/
-├── index.html
-├── games.html
-├── music.html
-├── css/
-│   ├── style.css
-│   ├── games.css
-│   └── music.css
-├── js/
-│   ├── main.js
-│   └── trackers.js
-└── README.md
-
+index.html                       Inicio
+sobre-mi.html                    Bio
+juegos/index.html                Mis juegos
+juegos/my-extreme-skatepark.html ★ destacado
+juegos/armaduras-musicales.html
+juegos/batalla-de-coronas.html
+juegos/de-cero-a-ceo.html
+la-vaca-del-tablero.html         Editorial
+musica.html                      Música
+contacto.html                    Contacto
 ```
 
-## 📊 Trackers and Analytics
+`privacidad.html` está solo en español. Las URLs antiguas de la tienda (`games.html`, `music.html`,
+`products/*.html`, `terminos.html`, `pago-*.html`, `expotaku.html`) son redirecciones a las páginas nuevas.
 
-All tracking pixels and analytics tools are managed from a single file: **`js/trackers.js`**.
+Estilos en `css/site.css`, JavaScript en `js/site.js` (menú móvil y videos de YouTube que cargan al hacer clic).
 
-| Tool | ID |
-| --- | --- |
-| Meta Pixel | `3627643840689292` |
-| TikTok Pixel | `D6KT7G3C77U3SAC89O0G` |
-| Umami | `16ceb526-7cf0-4b63-b670-a13e9eb20822` |
+## Cómo editar
 
-### Loading Strategy
+Las páginas se generan con `tools/build.py`, que tiene todos los textos en los tres idiomas.
+Para cambiar un texto o agregar un juego, edita `tools/build.py` y ejecuta:
 
-* The file is included with `defer` in the `<head>` of each page.
-* Initialization is delayed until the browser is idle (`requestIdleCallback`), up to 3 seconds after page load, or upon the user's first interaction.
-* If any tracker fails, the error is contained and does not affect the rest of the site.
+```
+python3 tools/build.py .
+```
 
-### Inclusion Paths
+Si editas un HTML a mano, recuerda hacer el mismo cambio en `/en/` y `/ja/`.
 
-* Pages in the root: `<script defer src="js/trackers.js"></script>`
-* Pages in `products/`: `<script defer src="../js/trackers.js"></script>`
+Las portadas de My Extreme Skatepark, Armaduras Musicales y De Cero a CEO son provisorias (dibujadas con CSS).
+Para usar una imagen real, súbela a `images/` y pon su ruta en el campo `cover` del juego en `tools/build.py`.
 
-> ⚠️ **Important:** Do not add inline tracker snippets directly into the HTML files.
-> Everything must be managed through `js/trackers.js`.
+## Vista previa local
 
-## 📬 Contact
+```
+python3 -m http.server 8000
+```
 
-* Email: arosteguy.daniel@gmail.com
-* Phone: +56 9 7828 6738
+y abre http://localhost:8000 (las rutas empiezan con `/`, así que abrir el archivo directo no carga los estilos).
+
+## Analítica
+
+`js/trackers.js` carga Meta Pixel, TikTok Pixel y Umami. Cada página además incluye Google Analytics
+(`G-SEK1KR9XGS`) y un segundo Meta Pixel (`951894654288792`) que antes estaba escrito directo en el HTML.
+
+## Contacto
+
+arosteguy.daniel@gmail.com
 
 ---
 
