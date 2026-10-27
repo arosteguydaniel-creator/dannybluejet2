@@ -497,7 +497,7 @@ def game_page(lang, g):
     links = [(t["bgg"], f"https://boardgamegeek.com/boardgame/{g['bgg']}")]
     if g["slug"] == "my-extreme-skatepark":
         b = MES_BODY[lang]
-        links += [("itten", "https://itten-games.com/"), ("Naotaka Shimamoto (X)", "https://x.com/shimamotonao")]
+        links += [("itten", "https://itten-games.com/"), ("itten (X)", "https://x.com/itten_games_en"), ("itten (Instagram)", "https://www.instagram.com/itten_games/")]
         main = f"""          <p class="lead">{b['lead']}</p>
           <h2>{b['about_h']}</h2>
 {chr(10).join(f'          <p>{p}</p>' for p in b['about'])}
