@@ -176,5 +176,5 @@ a { color: var(--blue); }
   .music-band-video { display: none; }
 }
 .diary-fig { margin: 1.5rem 0; }
-.diary-fig img { width: 100%; height: auto; border-radius: 12px; display: block; }
-.diary-fig figcaption { font-size: .9rem; color: #666; margin-top: .4rem; font-style: italic; }
+.diary-fig img { max-width: 100%; max-height: 640px; width: auto; height: auto; border-radius: 12px; display: block; margin: 0 auto; }
+.diary-fig figcaption { font-size: .9rem; color: #666; margin-top: .4rem; font-style: italic; text-align: center; }
