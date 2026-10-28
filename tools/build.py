@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """Generates the trilingual author site into the repo given as argv[1]."""
-import sys, os, html
+import sys, os, html, re
 
 ROOT = sys.argv[1]
 SITE = "https://www.dannybluejet.com"
@@ -501,6 +501,7 @@ def game_page(lang, g):
         main = f"""          <p class="lead">{b['lead']}</p>
           <h2>{b['about_h']}</h2>
 {chr(10).join(f'          <p>{p}</p>' for p in b['about'])}
+          <p><a class="btn" href="{url(lang if lang in DIARY_LANGS else 'en', DIARY_PATH)}">{DIARY.get(lang, DIARY['en'])['link'] if lang != 'ja' else 'デザイナーダイアリー（英語）を読む'}</a></p>
           <h2>{b['spiel_h']}</h2>
           <p>{b['spiel']}</p>
           <h2>{t['credits']}</h2>
@@ -552,6 +553,68 @@ def game_page(lang, g):
     </section>
 """
     return page(lang, f"juegos/{g['slug']}.html", g["title"], desc, body, active="juegos/")
+
+
+# ---------------------------------------------------------------- designer diary
+# Text lives in tools/diario/<lang>.txt in BGG markup, exactly as posted on BoardGameGeek.
+# Photos go in /images/diario/<BGG image id>.jpg; a photo whose file is missing is skipped.
+DIARY_PATH = "juegos/my-extreme-skatepark-diario.html"
+DIARY_LANGS = ["es", "en"]
+DIARY = {
+    "es": dict(
+        title="Diario de diseño: My Extreme Skatepark",
+        sub="O cómo volver a andar en skate llevó un juego sudamericano a Japón",
+        bgg="https://boardgamegeek.com/thread/3789331", bgg_label="Léelo y comenta en BoardGameGeek",
+        link="Leer el diario de diseño",
+    ),
+    "en": dict(
+        title="Designer Diary: My Extreme Skatepark",
+        sub="Or how returning to skateboarding brought a South American game to Japan",
+        bgg="https://boardgamegeek.com/thread/3789331", bgg_label="Read and comment on BoardGameGeek",
+        link="Read the designer diary",
+    ),
+}
+
+
+def bbcode(s):
+    s = esc(s)
+    s = re.sub(r"\[b\](.*?)\[/b\]", r"<strong>\1</strong>", s)
+    return re.sub(r"\[i\](.*?)\[/i\]", r"<em>\1</em>", s)
+
+
+def diary_html(lang):
+    with open(os.path.join(ROOT, "tools", "diario", lang + ".txt"), encoding="utf-8") as f:
+        blocks = [b.strip() for b in f.read().split("\n\n") if b.strip()]
+    out = []
+    for b in blocks:
+        m = re.match(r"\[imageid=(\d+)[^\]]*\]\s*(?:\[i\](.*?)\[/i\])?$", b, re.S)
+        if m:
+            src = f"/images/diario/{m.group(1)}.jpg"
+            if os.path.exists(os.path.join(ROOT, src.lstrip("/"))):
+                cap = f"<figcaption>{bbcode(m.group(2))}</figcaption>" if m.group(2) else ""
+                out.append(f'          <figure class="diary-fig"><img src="{src}" alt="{esc(m.group(2) or "My Extreme Skatepark")}" loading="lazy">{cap}</figure>')
+        else:
+            out.append(f"          <p>{bbcode(b)}</p>")
+    return "\n".join(out)
+
+
+def diary(lang):
+    d = DIARY[lang]
+    body = f"""    <section class="page-head">
+      <div class="wrap prose">
+        <a class="back" href="{url(lang, 'juegos/my-extreme-skatepark.html')}">← My Extreme Skatepark</a>
+        <h1>{d['title']}</h1>
+        <p class="lead">{d['sub']}</p>
+      </div>
+    </section>
+    <section class="section">
+      <div class="wrap prose diary">
+{diary_html(lang)}
+          <p><a class="btn" href="{d['bgg']}" target="_blank" rel="noopener noreferrer">{d['bgg_label']}</a></p>
+      </div>
+    </section>
+"""
+    return page(lang, DIARY_PATH, d["title"], d["sub"], body, active="juegos/", og_image="/images/mes.webp", langs=DIARY_LANGS)
 
 
 def vaca(lang):
@@ -705,6 +768,8 @@ def main():
         write(pre + "juegos/index.html", games_index(lang))
         for g in GAMES:
             write(pre + f"juegos/{g['slug']}.html", game_page(lang, g))
+        if lang in DIARY_LANGS:
+            write(pre + DIARY_PATH, diary(lang))
         write(pre + "la-vaca-del-tablero.html", vaca(lang))
         write(pre + "musica.html", music(lang))
         write(pre + "contacto.html", contact(lang))
@@ -721,10 +786,12 @@ def main():
 
     pages = ["index.html", "sobre-mi.html", "juegos/index.html"] + [f"juegos/{g['slug']}.html" for g in GAMES] + \
             ["la-vaca-del-tablero.html", "musica.html", "contacto.html"]
+    pages.append(DIARY_PATH)
     entries = []
     for pth in pages:
-        for lang in LANGS:
-            alts = "\n".join(f'    <xhtml:link rel="alternate" hreflang="{l}" href="{SITE}{url(l, pth)}"/>' for l in LANGS)
+        langs = DIARY_LANGS if pth == DIARY_PATH else LANGS
+        for lang in langs:
+            alts = "\n".join(f'    <xhtml:link rel="alternate" hreflang="{l}" href="{SITE}{url(l, pth)}"/>' for l in langs)
             entries.append(f"  <url>\n    <loc>{SITE}{url(lang, pth)}</loc>\n    <lastmod>2026-10-07</lastmod>\n{alts}\n  </url>")
     write("sitemap.xml", '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">\n'
           + "\n".join(entries) + "\n</urlset>\n")
