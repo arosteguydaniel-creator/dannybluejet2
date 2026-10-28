@@ -501,7 +501,7 @@ def game_page(lang, g):
         main = f"""          <p class="lead">{b['lead']}</p>
           <h2>{b['about_h']}</h2>
 {chr(10).join(f'          <p>{p}</p>' for p in b['about'])}
-          <p><a class="btn" href="{url(lang if lang in DIARY_LANGS else 'en', DIARY_PATH)}">{DIARY.get(lang, DIARY['en'])['link'] if lang != 'ja' else 'デザイナーダイアリー（英語）を読む'}</a></p>
+          <p><a class="btn" href="{url(lang, DIARY_PATH)}">{DIARY[lang]['link']}</a></p>
           <h2>{b['spiel_h']}</h2>
           <p>{b['spiel']}</p>
           <h2>{t['credits']}</h2>
@@ -559,7 +559,7 @@ def game_page(lang, g):
 # Text lives in tools/diario/<lang>.txt in BGG markup, exactly as posted on BoardGameGeek.
 # Photos go in /images/diario/<BGG image id>.jpg; a photo whose file is missing is skipped.
 DIARY_PATH = "juegos/my-extreme-skatepark-diario.html"
-DIARY_LANGS = ["es", "en"]
+DIARY_LANGS = ["es", "en", "ja"]
 DIARY = {
     "es": dict(
         title="Diario de diseño: My Extreme Skatepark",
@@ -572,6 +572,12 @@ DIARY = {
         sub="Or how returning to skateboarding brought a South American game to Japan",
         bgg="https://boardgamegeek.com/thread/3789331", bgg_label="Read and comment on BoardGameGeek",
         link="Read the designer diary",
+    ),
+    "ja": dict(
+        title="デザイナーダイアリー：My Extreme Skatepark",
+        sub="スケートボードへの復帰が、南米生まれのゲームを日本へ運んだ話",
+        bgg="https://boardgamegeek.com/thread/3789331", bgg_label="BoardGameGeekで読む・コメントする（英語）",
+        link="デザイナーダイアリーを読む",
     ),
 }
 
