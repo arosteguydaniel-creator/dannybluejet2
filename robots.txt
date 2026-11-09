@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /products/
+
+Sitemap: https://www.dannybluejet.com/sitemap.xml

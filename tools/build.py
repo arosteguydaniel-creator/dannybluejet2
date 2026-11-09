@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """Generates the trilingual author site into the repo given as argv[1]."""
-import sys, os, html
+import sys, os, html, json
 
 ROOT = sys.argv[1]
 SITE = "https://www.dannybluejet.com"
@@ -8,6 +8,7 @@ LANGS = ["es", "en", "ja"]
 PREFIX = {"es": "/", "en": "/en/", "ja": "/ja/"}
 LANG_LABEL = {"es": "ES", "en": "EN", "ja": "日本語"}
 EMAIL = "arosteguy.daniel@gmail.com"
+TODAY = "2026-11-09"  # fecha de la última regeneración, usada en el sitemap
 
 SOCIAL = [
     ("X", "https://x.com/Dannybluejet1"),
@@ -17,9 +18,9 @@ SOCIAL = [
 ]
 
 NAV = {
-    "es": [("index.html", "Inicio"), ("sobre-mi.html", "Sobre mí"), ("juegos/", "Juegos"), ("musica.html", "Música"), ("contacto.html", "Contacto")],
-    "en": [("index.html", "Home"), ("sobre-mi.html", "About"), ("juegos/", "Games"), ("musica.html", "Music"), ("contacto.html", "Contact")],
-    "ja": [("index.html", "ホーム"), ("sobre-mi.html", "プロフィール"), ("juegos/", "ゲーム"), ("musica.html", "音楽"), ("contacto.html", "お問い合わせ")],
+    "es": [("index.html", "Inicio"), ("sobre-mi.html", "Sobre mí"), ("juegos/", "Juegos"), ("blog/", "Blog"), ("musica.html", "Música"), ("contacto.html", "Contacto")],
+    "en": [("index.html", "Home"), ("sobre-mi.html", "About"), ("juegos/", "Games"), ("blog/", "Blog"), ("musica.html", "Music"), ("contacto.html", "Contact")],
+    "ja": [("index.html", "ホーム"), ("sobre-mi.html", "プロフィール"), ("juegos/", "ゲーム"), ("blog/", "ブログ"), ("musica.html", "音楽"), ("contacto.html", "お問い合わせ")],
 }
 
 T = {
@@ -33,6 +34,9 @@ T = {
         credits="Créditos", links="Enlaces", back="← Todos los juegos",
         featured="Destacado", play_video="Reproducir video",
         music_cta="Canciones, videos y shows en vivo.",
+        blog="Blog", read_post="Leer la entrada", back_blog="← Todas las entradas",
+        published="Publicado el", updated="Actualizado el", latest="Última entrada",
+        press_section="En la prensa", video_section="En video", bgg_section="En BoardGameGeek",
     ),
     "en": dict(
         tagline="Board game designer and musician",
@@ -44,6 +48,9 @@ T = {
         credits="Credits", links="Links", back="← All games",
         featured="Featured", play_video="Play video",
         music_cta="Songs, videos and live shows.",
+        blog="Blog", read_post="Read the post", back_blog="← All posts",
+        published="Published on", updated="Updated on", latest="Latest post",
+        press_section="In the press", video_section="On video", bgg_section="On BoardGameGeek",
     ),
     "ja": dict(
         tagline="ボードゲームデザイナー・ミュージシャン",
@@ -55,6 +62,9 @@ T = {
         credits="クレジット", links="リンク", back="← 作品一覧",
         featured="注目作", play_video="動画を再生",
         music_cta="楽曲、ミュージックビデオ、ライブ。",
+        blog="ブログ", read_post="記事を読む", back_blog="← 記事一覧",
+        published="公開日", updated="更新日", latest="最新の記事",
+        press_section="メディア掲載", video_section="動画", bgg_section="BoardGameGeek",
     ),
 }
 
@@ -193,10 +203,64 @@ PAGE_TITLES = {
     "index.html": {"es": "Danny Blue Jet — Diseñador de juegos de mesa y músico", "en": "Danny Blue Jet — Board game designer and musician", "ja": "Danny Blue Jet — ボードゲームデザイナー・ミュージシャン"},
     "sobre-mi.html": {"es": "Sobre mí", "en": "About", "ja": "プロフィール"},
     "juegos/index.html": {"es": "Mis juegos", "en": "My games", "ja": "作品"},
+    "blog/index.html": {"es": "Blog", "en": "Blog", "ja": "ブログ"},
     "la-vaca-del-tablero.html": {"es": "La Vaca del Tablero", "en": "La Vaca del Tablero", "ja": "La Vaca del Tablero"},
     "musica.html": {"es": "Música", "en": "Music", "ja": "音楽"},
     "contacto.html": {"es": "Contacto", "en": "Contact", "ja": "お問い合わせ"},
 }
+
+# ---------------------------------------------------------------- shop
+# Venta directa de Batalla de Coronas. Solo español, solo despacho dentro de Chile.
+# Para activar el botón de pago: crea el link en el portal de Flow (Link de pago)
+# y pégalo en flow_url. Mientras esté vacío, el botón invita a escribir por correo.
+SHOP = dict(
+    slug="comprar-batalla-de-coronas",
+    game="batalla-de-coronas",
+    price_clp=None,          # ej. 14990 — sin precio, la página invita a consultar
+    flow_url="",             # ej. "https://www.flow.cl/app/web/pagarBtnPago.php?token=XXXX"
+    shipping="Despacho a todo Chile por Starken o Chilexpress, por pagar en destino. "
+             "Retiro gratis en Osorno coordinando por correo.",
+    stock=True,
+)
+
+# ---------------------------------------------------------------- radar de prensa
+# Menciones de My Extreme Skatepark recogidas por el barrido. Al cerrar un barrido
+# nuevo, agrega filas aquí (mismo orden que la planilla "Prensa My Extreme Skatepark")
+# y vuelve a correr este script: el blog se regenera solo.
+COUNTRY = {
+    "JP": {"es": "Japón", "en": "Japan", "ja": "日本"},
+    "US": {"es": "EE.UU.", "en": "USA", "ja": "アメリカ"},
+    "UK": {"es": "Reino Unido", "en": "UK", "ja": "イギリス"},
+    "SK": {"es": "Eslovaquia", "en": "Slovakia", "ja": "スロバキア"},
+    "ES": {"es": "España", "en": "Spain", "ja": "スペイン"},
+    "DE": {"es": "Alemania", "en": "Germany", "ja": "ドイツ"},
+    "IT": {"es": "Italia", "en": "Italy", "ja": "イタリア"},
+    "AU": {"es": "Australia", "en": "Australia", "ja": "オーストラリア"},
+}
+
+# (fecha, medio, país, idioma del artículo, título tal como se publicó, enlace)
+PRESS = [
+    ("2026-10-16", "Table Games in the World", "JP", "ja", "ittenファンブリックシリーズ3タイトル、11月中旬発売", "https://tgiw.info/2026/10/itten-funbrick-10-12.html"),
+    ("2026-10-17", "Meeple Mountain", "US", "en", "The 21 Most Anticipated Games of Essen Spiel 2026", "https://www.meeplemountain.com/articles/most-anticipated-games-of-essen-spiel/"),
+    ("2026-10-18", "Backseat Gamer", "UK", "en", "My Extreme Skatepark Has You Flicking Tiny Boards for Tricks", "https://www.backseatgamer.com/news"),
+    ("2026-10-18", "Doberacia Hromádka", "SK", "sk", "Doberacia Hromádka 22", "https://doberaciahromadka.substack.com/p/doberacia-hromadka-22-1210-18102026"),
+    ("2026-10-19", "2d6mag", "ES", "es", "Itten amplía Funbrick con My Extreme Skatepark, Music Nonsense y Mystery Chain", "https://2d6mag.es/noticias/itten-funbrick-skate-musica-mystery-chain-essen"),
+    ("2026-10-22", "2d6mag", "ES", "es", "Especial SPIEL Essen 2026 — Itten convierte sus cajas en pistas de skate", "https://2d6mag.es/especial/spiel-essen-2026"),
+    ("2026-10-26", "Table Games in the World", "JP", "ja", "ゲームマーケット2026秋レポート（ゲーム編）", "https://tgiw.info/2026/10/gm2026a-games.html"),
+    ("2026-11-01", "sumikai", "DE", "de", "Japan im Gespräch auf der SPIEL 2026", "https://sumikai.com/japan-in-deutschland/gesellschaftsspiele/japan-im-gespraech-auf-der-spiel-2026-kleine-neuheiten-grosse-hits-und-terminsorgen-382332/"),
+    ("2026-11-08", "Ozzie Collectables", "AU", "en", "My Extreme Skatepark — SKU FB-SK", "https://www.ozziecollectables.com/products/my-extreme-skatepark"),
+    ("2026-11-09", "boardgamepedia", "JP", "ja", "新作&再販ボードゲームの発売予定スケジュール", "https://boardgamepedia.com/new-release/"),
+    ("2026-11-09", "boku-boardgame", "JP", "ja", "【2026年11月最新】新作・再販ボードゲームの発売予定一覧", "https://boku-boardgame.net/new-work"),
+]
+
+# (fecha, canal, país, título, minuto del juego, enlace) — solo menciones confirmadas
+VIDEOS = [
+    ("2026-10-19", "Miss Merc007", "JP", "Games that start with M! Mystery Chain, My Extreme Skatepark, and Music Nonsense", "", "https://www.youtube.com/watch?v=FmSFwimRRfw"),
+    ("2026-11-02", "non solo Pane", "IT", "ESSEN SPIEL 2026: i giochi provati e il racconto della fiera", "20:45", "https://www.youtube.com/watch?v=GAfVwMTqgMU"),
+    ("2026-11-04", "The Dice Tower", "US", "Flash Marathon — Tuesday Night Gaming", "23:11", "https://www.youtube.com/watch?v=_OPw4BBINkE"),
+]
+
+BGG_SNAPSHOT = dict(date="2026-11-09", avg_es="5,85", avg_en="5.85", votes=26, comments=7)
 
 SPOTIFY = ["7K8FFh7pG2NeeUo51Govqx", "74K276v26BlH9OAl68Unel"]
 YOUTUBE = ["3RhNDPlTqJ4", "I0PjK36jQN8"]
@@ -233,7 +297,8 @@ def esc(s):
     return html.escape(s, quote=True)
 
 
-def page(lang, path, title, description, body, active=None, og_image="/images/danny-og.jpg", langs=LANGS):
+def page(lang, path, title, description, body, active=None, og_image="/images/danny-og.jpg", langs=LANGS,
+         og_type="website", head_extra=""):
     t = T[lang]
     full_title = title if title.startswith("Danny Blue Jet") else f"{title} — Danny Blue Jet"
     alternates = "\n".join(
@@ -262,7 +327,7 @@ def page(lang, path, title, description, body, active=None, og_image="/images/da
   <meta name="description" content="{esc(description)}">
   <link rel="canonical" href="{SITE}{url(lang, path)}">
 {alternates}
-  <meta property="og:type" content="website">
+  <meta property="og:type" content="{og_type}">
   <meta property="og:site_name" content="Danny Blue Jet">
   <meta property="og:title" content="{esc(full_title)}">
   <meta property="og:description" content="{esc(description)}">
@@ -277,7 +342,7 @@ def page(lang, path, title, description, body, active=None, og_image="/images/da
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800{jp_font}&display=swap">
   <link rel="stylesheet" href="/css/site.css">
 {HEAD_TRACKING}
-</head>
+{head_extra}</head>
 <body>
   <header class="site-header">
     <nav class="nav" aria-label="{t['menu']}">
@@ -519,6 +584,15 @@ def game_page(lang, g):
         main = "\n".join(f"          <p>{p}</p>" for p in g["body"][lang])
         main += "\n          <!-- TODO: agregar fotos, duración de partida y la historia de cómo nació el juego -->"
         desc = strip(g["teaser"][lang])
+        if g["slug"] == SHOP["game"]:
+            buy = {"es": ("Comprar el juego", "Lo vendo directamente, con despacho dentro de Chile."),
+                   "en": ("Buy the game", "I sell it directly, with shipping inside Chile only."),
+                   "ja": ("ゲームを購入する", "チリ国内限定で、直接販売しています。")}[lang]
+            main += f"""
+          <h2>{buy[0]}</h2>
+          <p>{buy[1]}</p>
+          <p><a class="btn btn-buy" href="/{SHOP['slug']}.html">{buy[0]}</a></p>"""
+            links.append((buy[0], "/" + SHOP["slug"] + ".html"))
     links_html = "\n".join(
         f'            <li><a href="{u}"' + (' target="_blank" rel="noopener noreferrer"' if u.startswith("http") else "") + f">{n}</a></li>"
         for n, u in links
@@ -552,6 +626,266 @@ def game_page(lang, g):
     </section>
 """
     return page(lang, f"juegos/{g['slug']}.html", g["title"], desc, body, active="juegos/")
+
+
+# ---------------------------------------------------------------- blog
+MONTHS = {
+    "es": ["enero", "febrero", "marzo", "abril", "mayo", "junio", "julio",
+           "agosto", "septiembre", "octubre", "noviembre", "diciembre"],
+    "en": ["January", "February", "March", "April", "May", "June", "July",
+           "August", "September", "October", "November", "December"],
+}
+
+
+def fmt_date(lang, iso):
+    y, m, d = (int(x) for x in iso.split("-"))
+    if lang == "ja":
+        return f"{y}年{m}月{d}日"
+    if lang == "es":
+        return f"{d} de {MONTHS['es'][m - 1]} de {y}"
+    return f"{d} {MONTHS['en'][m - 1]} {y}"
+
+
+PRESS_POST = {
+    "es": dict(
+        title="My Extreme Skatepark en la prensa: el primer mes",
+        excerpt="Dónde ha aparecido en internet el juego que co-diseñé para itten: medios de siete países, videos de reseña y las primeras opiniones en BoardGameGeek.",
+        lead="El juego salió de la caja y se fue solo a recorrer el mundo. Esto es todo lo que ha aparecido en internet sobre <em>My Extreme Skatepark</em> en su primer mes.",
+        intro=[
+            "<em>My Extreme Skatepark</em> se presentó en SPIEL Essen 2026 y en el Game Market de otoño en Tokio. Desde entonces vengo siguiendo dónde aparece, y me pareció justo dejarlo ordenado en un solo lugar en vez de que quede disperso en capturas de pantalla.",
+            "Llevo el registro en una planilla que actualizo cada cierto tiempo. Esta entrada se genera desde ahí, así que va a ir creciendo sola.",
+        ],
+        press_intro="apariciones en medios de {countries} países, en {langs} idiomas: desde el anuncio de lanzamiento en Japón hasta las listas de novedades de Essen.",
+        video_intro="Canales que lo mostraron en mesa:",
+        video_minute="minuto",
+        bgg_text="En su ficha de BoardGameGeek el juego promedia <strong>{avg}</strong> con {votes} votos y {comments} comentarios. Las opiniones están divididas, que es más o menos lo que uno espera de un juego de destreza: hay quien lo encontró distinto a todo lo que había jugado en mucho tiempo, y hay quien sintió que el skate no le obedecía lo suficiente. Las dos reacciones me parecen información útil.",
+        close_h="¿Lo viste en otra parte?",
+        close="Si te topaste con el juego en una reseña, un video o una tienda que no esté en esta lista, escríbeme y lo agrego.",
+    ),
+    "en": dict(
+        title="My Extreme Skatepark in the press: the first month",
+        excerpt="Where the game I co-designed for itten has turned up online: outlets from seven countries, review videos and the first opinions on BoardGameGeek.",
+        lead="The game left the box and went off to see the world on its own. Here is everything that has appeared online about <em>My Extreme Skatepark</em> in its first month.",
+        intro=[
+            "<em>My Extreme Skatepark</em> premiered at SPIEL Essen 2026 and at the autumn Game Market in Tokyo. I have been tracking where it shows up ever since, and it felt right to keep it in one place instead of scattered across screenshots.",
+            "I keep the record in a spreadsheet that I refresh every so often. This post is generated from it, so it will keep growing on its own.",
+        ],
+        press_intro="press appearances across {countries} countries, in {langs} languages: from the launch announcement in Japan to the Essen new-release lists.",
+        video_intro="Channels that put it on the table:",
+        video_minute="at",
+        bgg_text="On its BoardGameGeek page the game averages <strong>{avg}</strong> from {votes} ratings and {comments} comments. Opinions are split, which is roughly what you expect from a dexterity game: some found it unlike anything they had played in a long time, others felt the skateboard did not obey them enough. Both reactions are useful information to me.",
+        close_h="Seen it somewhere else?",
+        close="If you came across the game in a review, a video or a shop that is not on this list, write to me and I will add it.",
+    ),
+    "ja": dict(
+        title="『My Extreme Skatepark』メディア掲載まとめ — 最初の1か月",
+        excerpt="itten から出版された共同デザイン作品が、ネット上でどのように紹介されたか。7か国のメディア、レビュー動画、BoardGameGeek での最初の評価まとめ。",
+        lead="箱から飛び出したゲームは、ひとりで世界を回りはじめました。『My Extreme Skatepark』の最初の1か月に、ネット上で紹介された記録をまとめます。",
+        intro=[
+            "『My Extreme Skatepark』は SPIEL Essen 2026 と、東京のゲームマーケット2026秋でお披露目されました。それ以来、どこで紹介されたかを追いかけています。スクリーンショットのまま散らばらせておくより、ひとつの場所にまとめておきたいと思いました。",
+            "記録はスプレッドシートで管理していて、定期的に更新しています。この記事はそこから自動生成されているので、これからも増えていきます。",
+        ],
+        press_intro="件のメディア掲載、{countries}か国・{langs}言語。日本での発売告知から、エッセンの新作リストまで。",
+        video_intro="実際にプレイして紹介してくれたチャンネル：",
+        video_minute="",
+        bgg_text="BoardGameGeek のページでは、{votes} 件の評価で平均 <strong>{avg}</strong>、コメントは {comments} 件です。評価は割れていますが、アクションゲームとしてはむしろ自然なことだと思います。「久しぶりに新しいと感じた」という声もあれば、「スケートボードが思うように動かなかった」という声もありました。どちらも私にとって貴重な情報です。",
+        close_h="ほかで見かけましたか？",
+        close="このリストにないレビュー・動画・ショップで本作を見かけたら、ぜひご連絡ください。追加します。",
+    ),
+}
+
+
+def press_post_body(lang):
+    t, p = T[lang], PRESS_POST[lang]
+    countries = len({row[2] for row in PRESS})
+    langs = len({row[3] for row in PRESS})
+    press_rows = "\n".join(
+        f'            <li><a href="{u}" target="_blank" rel="noopener noreferrer">{esc(title)}</a>'
+        f' <span class="post-meta">{esc(outlet)} · {COUNTRY[c][lang]} · {fmt_date(lang, date)}</span></li>'
+        for date, outlet, c, _lg, title, u in PRESS
+    )
+    video_rows = "\n".join(
+        f'            <li><a href="{u}" target="_blank" rel="noopener noreferrer">{esc(title)}</a>'
+        f' <span class="post-meta">{esc(channel)} · {COUNTRY[c][lang]}'
+        + (f" · {p['video_minute']} {minute}" if minute else "")
+        + f" · {fmt_date(lang, date)}</span></li>"
+        for date, channel, c, title, minute, u in VIDEOS
+    )
+    b = BGG_SNAPSHOT
+    bgg = p["bgg_text"].format(avg=b["avg_es"] if lang == "es" else b["avg_en"],
+                               votes=b["votes"], comments=b["comments"])
+    intro = "\n".join(f"          <p>{x}</p>" for x in p["intro"])
+    count_line = (f"{len(PRESS)}{p['press_intro']}" if lang == "ja"
+                  else f"{len(PRESS)} {p['press_intro']}").format(countries=countries, langs=langs)
+    return f"""          <p class="lead">{p['lead']}</p>
+{intro}
+          <h2>{t['press_section']}</h2>
+          <p>{count_line}</p>
+          <ul class="post-list">
+{press_rows}
+          </ul>
+          <h2>{t['video_section']}</h2>
+          <p>{p['video_intro']}</p>
+          <ul class="post-list">
+{video_rows}
+          </ul>
+          <h2>{t['bgg_section']}</h2>
+          <p>{bgg}</p>
+          <p><a class="link-arrow" href="https://boardgamegeek.com/boardgame/{GAME['my-extreme-skatepark']['bgg']}" target="_blank" rel="noopener noreferrer">{t['bgg']} →</a></p>
+          <h2>{p['close_h']}</h2>
+          <p>{p['close']}</p>
+          <p><a class="btn" href="mailto:{EMAIL}?subject=My%20Extreme%20Skatepark">{t['write_me']}</a></p>"""
+
+
+POSTS = [
+    dict(slug="my-extreme-skatepark-en-la-prensa", date="2026-11-09",
+         og_image="/images/mes-card.webp", text=PRESS_POST, body=press_post_body),
+]
+
+
+def post_url(lang, post):
+    return url(lang, f"blog/{post['slug']}.html")
+
+
+def blog_index(lang):
+    t = T[lang]
+    intro = {
+        "es": "Notas sobre mis juegos, la música y lo que va pasando con ellos.",
+        "en": "Notes about my games, my music and what happens around them.",
+        "ja": "自作ゲームや音楽、その周辺で起きていることの記録です。",
+    }[lang]
+    items = "\n".join(
+        f"""          <article class="post-item">
+            <p class="post-meta">{fmt_date(lang, po['date'])}</p>
+            <h2><a href="{post_url(lang, po)}">{esc(po['text'][lang]['title'])}</a></h2>
+            <p>{po['text'][lang]['excerpt']}</p>
+            <p><a class="link-arrow" href="{post_url(lang, po)}">{t['read_post']} →</a></p>
+          </article>"""
+        for po in sorted(POSTS, key=lambda x: x["date"], reverse=True)
+    )
+    body = f"""    <section class="page-head">
+      <div class="wrap">
+        <h1>{t['blog']}</h1>
+        <p>{intro}</p>
+      </div>
+    </section>
+    <section class="section">
+      <div class="wrap">
+        <div class="post-feed">
+{items}
+        </div>
+      </div>
+    </section>
+"""
+    return page(lang, "blog/index.html", PAGE_TITLES["blog/index.html"][lang], intro, body, active="blog/")
+
+
+def blog_post(lang, po):
+    t, txt = T[lang], po["text"][lang]
+    path = f"blog/{po['slug']}.html"
+    jsonld = f"""  <script type="application/ld+json">
+  {{"@context":"https://schema.org","@type":"BlogPosting",
+    "headline":{json.dumps(txt['title'], ensure_ascii=False)},
+    "description":{json.dumps(strip(txt['excerpt']), ensure_ascii=False)},
+    "datePublished":"{po['date']}","dateModified":"{po['date']}",
+    "inLanguage":"{lang}",
+    "image":"{SITE}{po['og_image']}",
+    "mainEntityOfPage":"{SITE}{url(lang, path)}",
+    "author":{{"@type":"Person","name":"Daniel Arosteguy","alternateName":"Danny Blue Jet","url":"{SITE}{url(lang, 'sobre-mi.html')}"}},
+    "publisher":{{"@type":"Person","name":"Danny Blue Jet"}}}}
+  </script>
+"""
+    body = f"""    <section class="page-head">
+      <div class="wrap">
+        <a class="back" href="{url(lang, 'blog/')}">{t['back_blog']}</a>
+        <h1>{esc(txt['title'])}</h1>
+        <p class="post-meta">{t['published']} {fmt_date(lang, po['date'])}</p>
+      </div>
+    </section>
+    <section class="section">
+      <div class="wrap post-body">
+        <div class="prose">
+{po['body'](lang)}
+        </div>
+      </div>
+    </section>
+"""
+    return page(lang, path, txt["title"], strip(txt["excerpt"]), body, active="blog/",
+                og_image=po["og_image"], og_type="article", head_extra=jsonld)
+
+
+# ---------------------------------------------------------------- shop (ES)
+def shop_page():
+    g = GAME[SHOP["game"]]
+    price = f"${SHOP['price_clp']:,}".replace(",", ".") if SHOP["price_clp"] else None
+    if SHOP["flow_url"]:
+        cta = (f'<a class="btn btn-buy" href="{SHOP["flow_url"]}" target="_blank" rel="noopener noreferrer">'
+               f'Comprar ahora</a><p class="shop-note">Pago seguro con Flow: tarjetas de crédito y débito, '
+               f'transferencia bancaria y billeteras digitales.</p>')
+    else:
+        cta = (f'<a class="btn btn-buy" href="mailto:{EMAIL}?subject=Quiero%20comprar%20Batalla%20de%20Coronas">'
+               f'Pedir por correo</a><p class="shop-note">Te respondo con los datos de pago y el despacho.</p>')
+    offer = ""
+    if SHOP["price_clp"]:
+        offer = f""","offers":{{"@type":"Offer","price":"{SHOP['price_clp']}","priceCurrency":"CLP",
+      "availability":"https://schema.org/{'InStock' if SHOP['stock'] else 'OutOfStock'}",
+      "url":"{SITE}/{SHOP['slug']}.html","areaServed":"CL"}}"""
+    jsonld = f"""  <script type="application/ld+json">
+  {{"@context":"https://schema.org","@type":"Product",
+    "name":"Batalla de Coronas",
+    "description":"Juego de mesa de enfrentamientos tácticos para 2 jugadores, editado por La Vaca del Tablero. Partidas de 20 a 45 minutos, desde 10 años.",
+    "image":"{SITE}{g['cover']}",
+    "brand":{{"@type":"Brand","name":"La Vaca del Tablero"}},
+    "numberOfPlayers":"2","typicalAgeRange":"10-","inLanguage":"es"{offer}}}
+  </script>
+"""
+    price_block = (f'<p class="price">{price}</p>' if price
+                   else '<p class="price price-ask">Escríbeme por el precio</p>')
+    body = f"""    <section class="game-hero">
+      <div class="wrap game-hero-inner">
+        <div class="game-hero-cover">{cover(g, big=True)}</div>
+        <div class="shop">
+          <a class="back" href="/juegos/batalla-de-coronas.html">← Ver la ficha del juego</a>
+          <p class="eyebrow">La Vaca del Tablero</p>
+          <h1>Comprar Batalla de Coronas</h1>
+          <p>Juego de enfrentamientos tácticos para dos, con partidas rápidas y decisiones que duelen. Diseño de Pedro Guajardo Cordescu, editado y publicado por mí con La Vaca del Tablero.</p>
+          {price_block}
+          <dl class="facts">
+            <div><dt>Jugadores</dt><dd>2</dd></div>
+            <div><dt>Edad</dt><dd>10+</dd></div>
+            <div><dt>Duración</dt><dd>20–45 min</dd></div>
+            <div><dt>Idioma</dt><dd>Español</dd></div>
+          </dl>
+          {cta}
+          <p class="shop-note shop-cl"><strong>Ventas solo dentro de Chile.</strong> Si escribes desde fuera de Chile y quieres el juego, igual escríbeme y vemos cómo hacerlo llegar.</p>
+        </div>
+      </div>
+    </section>
+    <section class="section">
+      <div class="wrap game-body">
+        <div class="prose">
+          <h2>Qué recibes</h2>
+          <p>El juego completo, con su reglamento en español, listo para jugar al abrir la caja. Si es un regalo, dímelo al comprar y lo despacho sin el precio a la vista.</p>
+          <h2>Despacho</h2>
+          <p>{SHOP['shipping']}</p>
+          <h2>Dudas antes de comprar</h2>
+          <p>Si quieres saber si le va a gustar a quien se lo vas a regalar, cuántas partidas aguanta o cómo se juega, escríbeme a <a href="mailto:{EMAIL}">{EMAIL}</a>. Contesto yo, no un formulario.</p>
+        </div>
+        <aside class="side">
+          <h2>Enlaces</h2>
+          <ul>
+            <li><a href="/juegos/batalla-de-coronas.html">Ficha del juego</a></li>
+            <li><a href="https://boardgamegeek.com/boardgame/{g['bgg']}" target="_blank" rel="noopener noreferrer">Ver en BoardGameGeek</a></li>
+            <li><a href="/la-vaca-del-tablero.html">La Vaca del Tablero</a></li>
+          </ul>
+        </aside>
+      </div>
+    </section>
+"""
+    desc = ("Compra Batalla de Coronas, juego de mesa de enfrentamientos tácticos para 2 jugadores "
+            "editado por La Vaca del Tablero. Despacho a todo Chile.")
+    return page("es", f"{SHOP['slug']}.html", "Comprar Batalla de Coronas", desc, body,
+                active="juegos/", langs=["es"], og_image=g["cover"], head_extra=jsonld)
 
 
 def vaca(lang):
@@ -705,10 +1039,14 @@ def main():
         write(pre + "juegos/index.html", games_index(lang))
         for g in GAMES:
             write(pre + f"juegos/{g['slug']}.html", game_page(lang, g))
+        write(pre + "blog/index.html", blog_index(lang))
+        for po in POSTS:
+            write(pre + f"blog/{po['slug']}.html", blog_post(lang, po))
         write(pre + "la-vaca-del-tablero.html", vaca(lang))
         write(pre + "musica.html", music(lang))
         write(pre + "contacto.html", contact(lang))
     write("privacidad.html", page("es", "privacidad.html", "Políticas de Privacidad", "Política de privacidad de dannybluejet.com", PRIVACY, langs=["es"]))
+    write(f"{SHOP['slug']}.html", shop_page())
 
     # Old URLs → new pages, so existing links keep working.
     redirects = {"games.html": "/juegos/", "music.html": "/musica.html", "expotaku.html": "/musica.html",
@@ -722,14 +1060,23 @@ def main():
         write(old, redirect(new))
 
     pages = ["index.html", "sobre-mi.html", "juegos/index.html"] + [f"juegos/{g['slug']}.html" for g in GAMES] + \
+            ["blog/index.html"] + [f"blog/{po['slug']}.html" for po in POSTS] + \
             ["la-vaca-del-tablero.html", "musica.html", "contacto.html"]
+    lastmod = {f"blog/{po['slug']}.html": po["date"] for po in POSTS}
+    lastmod["blog/index.html"] = max(po["date"] for po in POSTS)
     entries = []
     for pth in pages:
         for lang in LANGS:
             alts = "\n".join(f'    <xhtml:link rel="alternate" hreflang="{l}" href="{SITE}{url(l, pth)}"/>' for l in LANGS)
-            entries.append(f"  <url>\n    <loc>{SITE}{url(lang, pth)}</loc>\n    <lastmod>2026-10-07</lastmod>\n{alts}\n  </url>")
+            entries.append(f"  <url>\n    <loc>{SITE}{url(lang, pth)}</loc>\n    <lastmod>{lastmod.get(pth, '2026-10-07')}</lastmod>\n{alts}\n  </url>")
+    # Página de venta: solo español, sin alternates.
+    entries.append(f"  <url>\n    <loc>{SITE}/{SHOP['slug']}.html</loc>\n    <lastmod>{TODAY}</lastmod>\n  </url>")
     write("sitemap.xml", '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">\n'
           + "\n".join(entries) + "\n</urlset>\n")
+
+    # robots.txt: las redirecciones viejas ya llevan noindex, pero conviene no gastar rastreo en ellas.
+    write("robots.txt", "User-agent: *\nAllow: /\nDisallow: /products/\n\n"
+                        f"Sitemap: {SITE}/sitemap.xml\n")
 
 
 main()
