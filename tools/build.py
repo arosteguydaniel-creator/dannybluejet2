@@ -691,7 +691,6 @@ PRESS_POST = {
         lead="<em>My Extreme Skatepark</em>, el juego que co-diseñé con Naotaka Shimamoto para la editorial japonesa itten, se presentó en SPIEL Essen 2026 y en el Game Market de otoño en Tokio. Estas son las notas que han salido sobre él desde entonces.",
         press_intro="apariciones en medios de {countries} países y {langs} idiomas.",
         video_intro="Canales que lo mostraron en mesa:",
-        bgg_text="En BoardGameGeek el juego promedia <strong>{avg}</strong> con {votes} votos y {comments} comentarios. Es un juego de destreza, así que las opiniones se reparten: a quienes les gusta, les gusta mucho. Un jugador belga que lo compró en Essen escribió que no se parecía a nada que hubiera jugado en mucho tiempo.",
         next_h="Lo que viene",
         next_text="A mediados de noviembre llega a las tiendas japonesas. Es el primer juego mío publicado fuera de Chile.",
     ),
@@ -702,7 +701,6 @@ PRESS_POST = {
         lead="<em>My Extreme Skatepark</em>, the game I co-designed with Naotaka Shimamoto for the Japanese publisher itten, premiered at SPIEL Essen 2026 and at the autumn Game Market in Tokyo. These are the pieces published about it since then.",
         press_intro="press appearances across {countries} countries and {langs} languages.",
         video_intro="Channels that put it on the table:",
-        bgg_text="On BoardGameGeek the game averages <strong>{avg}</strong> from {votes} ratings and {comments} comments. It is a dexterity game, so opinions divide: the people who like it, like it a lot. A player from Belgium who bought it at Essen wrote that it was unlike anything he had played in a long time.",
         next_h="What comes next",
         next_text="In mid-November it reaches Japanese shops. It is the first game of mine published outside Chile.",
     ),
@@ -713,7 +711,6 @@ PRESS_POST = {
         lead="島本直尚さんと共同でデザインし、itten から出版された『My Extreme Skatepark』は、SPIEL Essen 2026 と、東京のゲームマーケット2026秋でお披露目されました。以降に掲載された記事をまとめます。",
         press_intro="件のメディア掲載。{countries}か国・{langs}言語。",
         video_intro="実際にプレイして紹介してくれたチャンネル：",
-        bgg_text="BoardGameGeek では、{votes} 件の評価で平均 <strong>{avg}</strong>、コメントは {comments} 件です。アクションゲームなので評価は分かれますが、気に入ってくれた方の熱量は高いようです。エッセンで購入したベルギーのプレイヤーは「久しぶりに、ほかのどれとも似ていないと感じた」と書いてくれました。",
         next_h="これから",
         next_text="11月中旬、日本の店頭に並びます。チリの外で出版される、初めての自分の作品です。",
     ),
@@ -721,7 +718,7 @@ PRESS_POST = {
 
 
 def press_post_body(lang):
-    t, p, b = T[lang], PRESS_POST[lang], BGG_SNAPSHOT
+    t, p = T[lang], PRESS_POST[lang]
     entries = pub(PRESS)
     countries = len({e["country"] for e in entries.values()})
     langs = len({e["lang"] for e in entries.values()})
@@ -732,8 +729,6 @@ def press_post_body(lang):
     )
     count = (f"{len(entries)}{p['press_intro']}" if lang == "ja" else f"{len(entries)} {p['press_intro']}")
     count = count.format(countries=countries, langs=langs)
-    bgg = p["bgg_text"].format(avg=b["avg_es"] if lang == "es" else b["avg_en"],
-                               votes=b["votes"], comments=b["comments"])
     return f"""          <p class="lead">{p['lead']}</p>
           <h2>{t['press_section']}</h2>
           <p>{count}</p>
@@ -743,9 +738,6 @@ def press_post_body(lang):
           <h2>{t['video_section']}</h2>
           <p>{p['video_intro']}</p>
 {video_gallery(lang)}
-          <h2>{t['bgg_section']}</h2>
-          <p>{bgg}</p>
-          <p><a class="link-arrow" href="https://boardgamegeek.com/boardgame/{GAME['my-extreme-skatepark']['bgg']}" target="_blank" rel="noopener noreferrer">{t['bgg']} →</a></p>
           <h2>{p['next_h']}</h2>
           <p>{p['next_text']}</p>"""
 
