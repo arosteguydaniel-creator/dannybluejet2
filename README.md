@@ -21,10 +21,30 @@ juegos/my-extreme-skatepark.html ★ destacado
 juegos/armaduras-musicales.html
 juegos/batalla-de-coronas.html
 juegos/de-cero-a-ceo.html
+blog/index.html                  Blog
+blog/<slug>.html                 Entradas
 la-vaca-del-tablero.html         Editorial
 musica.html                      Música
 contacto.html                    Contacto
 ```
+
+`comprar-batalla-de-coronas.html` (la página de venta) está solo en español: las ventas son solo dentro de Chile.
+
+## Blog y radar de prensa
+
+Las menciones de My Extreme Skatepark viven en `tools/build.py`, en las listas `PRESS`, `VIDEOS` y
+`BGG_SNAPSHOT`, con el mismo orden de columnas que la planilla de Drive *Prensa My Extreme Skatepark*.
+Al cerrar un barrido nuevo, agrega las filas ahí y vuelve a correr el build: la entrada del blog
+se regenera sola en los tres idiomas, con los conteos (apariciones, países, idiomas) recalculados.
+
+## Venta
+
+El bloque `SHOP` en `tools/build.py` controla la página de venta:
+
+- `price_clp`: precio en pesos. Si está en `None`, la página invita a consultar por correo.
+- `flow_url`: link de pago creado en el portal de Flow (sección *Link de pago*). Si está vacío,
+  el botón abre el correo en vez de la pasarela.
+- `shipping`: texto de despacho. `stock`: disponibilidad, se refleja en los datos estructurados.
 
 `privacidad.html` está solo en español. Las URLs antiguas de la tienda (`games.html`, `music.html`,
 `products/*.html`, `terminos.html`, `pago-*.html`, `expotaku.html`) son redirecciones a las páginas nuevas.

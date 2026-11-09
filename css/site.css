@@ -175,3 +175,27 @@ a { color: var(--blue); }
   * { transition: none !important; scroll-behavior: auto !important; }
   .music-band-video { display: none; }
 }
+
+/* ---------- blog ---------- */
+.post-feed { display: grid; gap: 2.2rem; max-width: 760px; }
+.post-item { border-bottom: 1px solid #e2e8f0; padding-bottom: 2rem; }
+.post-item:last-child { border-bottom: 0; }
+.post-item h2 { font-size: 1.6rem; line-height: 1.25; margin: .3rem 0 .6rem; }
+.post-item h2 a { color: var(--ink); text-decoration: none; }
+.post-item h2 a:hover { color: var(--blue); }
+.post-meta { color: var(--muted); font-size: .85rem; display: block; }
+.post-body { max-width: 760px; }
+.post-body .prose h2 { margin-top: 2.4rem; }
+.post-list { list-style: none; display: grid; gap: 1rem; margin: 1.2rem 0; }
+.post-list li { padding-left: 1rem; border-left: 3px solid var(--bg-alt); }
+.post-list li a { font-weight: 600; text-decoration: none; }
+.post-list li a:hover { text-decoration: underline; }
+.post-list .post-meta { margin-top: .15rem; }
+
+/* ---------- venta ---------- */
+.shop .price { font-size: 2.4rem; font-weight: 800; color: var(--blue-dark); margin: 1rem 0 .2rem; }
+.shop .price-ask { font-size: 1.3rem; font-weight: 700; }
+.btn-buy { background: var(--blue); color: #fff; font-size: 1.05rem; padding: .9rem 2.2rem; }
+.btn-buy:hover { background: var(--blue-dark); }
+.shop-note { color: var(--muted); font-size: .9rem; margin-top: .7rem; max-width: 46ch; }
+.shop-cl { border-left: 3px solid var(--magenta); padding-left: .8rem; margin-top: 1.4rem; }
