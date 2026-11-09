@@ -238,27 +238,43 @@ COUNTRY = {
     "AU": {"es": "Australia", "en": "Australia", "ja": "オーストラリア"},
 }
 
-# (fecha, medio, país, idioma del artículo, título tal como se publicó, enlace)
-PRESS = [
-    ("2026-10-16", "Table Games in the World", "JP", "ja", "ittenファンブリックシリーズ3タイトル、11月中旬発売", "https://tgiw.info/2026/10/itten-funbrick-10-12.html"),
-    ("2026-10-17", "Meeple Mountain", "US", "en", "The 21 Most Anticipated Games of Essen Spiel 2026", "https://www.meeplemountain.com/articles/most-anticipated-games-of-essen-spiel/"),
-    ("2026-10-18", "Backseat Gamer", "UK", "en", "My Extreme Skatepark Has You Flicking Tiny Boards for Tricks", "https://www.backseatgamer.com/news"),
-    ("2026-10-18", "Doberacia Hromádka", "SK", "sk", "Doberacia Hromádka 22", "https://doberaciahromadka.substack.com/p/doberacia-hromadka-22-1210-18102026"),
-    ("2026-10-19", "2d6mag", "ES", "es", "Itten amplía Funbrick con My Extreme Skatepark, Music Nonsense y Mystery Chain", "https://2d6mag.es/noticias/itten-funbrick-skate-musica-mystery-chain-essen"),
-    ("2026-10-22", "2d6mag", "ES", "es", "Especial SPIEL Essen 2026 — Itten convierte sus cajas en pistas de skate", "https://2d6mag.es/especial/spiel-essen-2026"),
-    ("2026-10-26", "Table Games in the World", "JP", "ja", "ゲームマーケット2026秋レポート（ゲーム編）", "https://tgiw.info/2026/10/gm2026a-games.html"),
-    ("2026-11-01", "sumikai", "DE", "de", "Japan im Gespräch auf der SPIEL 2026", "https://sumikai.com/japan-in-deutschland/gesellschaftsspiele/japan-im-gespraech-auf-der-spiel-2026-kleine-neuheiten-grosse-hits-und-terminsorgen-382332/"),
-    ("2026-11-08", "Ozzie Collectables", "AU", "en", "My Extreme Skatepark — SKU FB-SK", "https://www.ozziecollectables.com/products/my-extreme-skatepark"),
-    ("2026-11-09", "boardgamepedia", "JP", "ja", "新作&再販ボードゲームの発売予定スケジュール", "https://boardgamepedia.com/new-release/"),
-    ("2026-11-09", "boku-boardgame", "JP", "ja", "【2026年11月最新】新作・再販ボードゲームの発売予定一覧", "https://boku-boardgame.net/new-work"),
-]
+# Registro del radar. Cada entrada tiene una clave que el relato del blog usa para
+# enlazarla, así el texto queda legible y los enlaces viven en un solo lugar.
+# "public": False para lo que no va en el blog (tiendas y listados con precios).
+PRESS = {
+    "tgiw_anuncio": dict(date="2026-10-16", outlet="Table Games in the World", country="JP", lang="ja",
+        title="ittenファンブリックシリーズ3タイトル、11月中旬発売", url="https://tgiw.info/2026/10/itten-funbrick-10-12.html"),
+    "meeple": dict(date="2026-10-17", outlet="Meeple Mountain", country="US", lang="en",
+        title="The 21 Most Anticipated Games of Essen Spiel 2026", url="https://www.meeplemountain.com/articles/most-anticipated-games-of-essen-spiel/"),
+    "backseat": dict(date="2026-10-18", outlet="Backseat Gamer", country="UK", lang="en",
+        title="My Extreme Skatepark Has You Flicking Tiny Boards for Tricks", url="https://www.backseatgamer.com/news"),
+    "doberacia": dict(date="2026-10-18", outlet="Doberacia Hromádka", country="SK", lang="sk",
+        title="Doberacia Hromádka 22", url="https://doberaciahromadka.substack.com/p/doberacia-hromadka-22-1210-18102026"),
+    "2d6_noticia": dict(date="2026-10-19", outlet="2d6mag", country="ES", lang="es",
+        title="Itten amplía Funbrick con My Extreme Skatepark, Music Nonsense y Mystery Chain", url="https://2d6mag.es/noticias/itten-funbrick-skate-musica-mystery-chain-essen"),
+    "2d6_especial": dict(date="2026-10-22", outlet="2d6mag", country="ES", lang="es",
+        title="Especial SPIEL Essen 2026 — Itten convierte sus cajas en pistas de skate", url="https://2d6mag.es/especial/spiel-essen-2026"),
+    "tgiw_gm": dict(date="2026-10-26", outlet="Table Games in the World", country="JP", lang="ja",
+        title="ゲームマーケット2026秋レポート（ゲーム編）", url="https://tgiw.info/2026/10/gm2026a-games.html"),
+    "sumikai": dict(date="2026-11-01", outlet="sumikai", country="DE", lang="de",
+        title="Japan im Gespräch auf der SPIEL 2026", url="https://sumikai.com/japan-in-deutschland/gesellschaftsspiele/japan-im-gespraech-auf-der-spiel-2026-kleine-neuheiten-grosse-hits-und-terminsorgen-382332/"),
+    "ozzie": dict(date="2026-11-08", outlet="Ozzie Collectables", country="AU", lang="en", public=False,
+        title="My Extreme Skatepark — SKU FB-SK", url="https://www.ozziecollectables.com/products/my-extreme-skatepark"),
+    "boardgamepedia": dict(date="2026-11-09", outlet="boardgamepedia", country="JP", lang="ja", public=False,
+        title="新作&再販ボードゲームの発売予定スケジュール", url="https://boardgamepedia.com/new-release/"),
+    "boku": dict(date="2026-11-09", outlet="boku-boardgame", country="JP", lang="ja", public=False,
+        title="【2026年11月最新】新作・再販ボードゲームの発売予定一覧", url="https://boku-boardgame.net/new-work"),
+}
 
-# (fecha, canal, país, título, minuto del juego, enlace) — solo menciones confirmadas
-VIDEOS = [
-    ("2026-10-19", "Miss Merc007", "JP", "Games that start with M! Mystery Chain, My Extreme Skatepark, and Music Nonsense", "", "https://www.youtube.com/watch?v=FmSFwimRRfw"),
-    ("2026-11-02", "non solo Pane", "IT", "ESSEN SPIEL 2026: i giochi provati e il racconto della fiera", "20:45", "https://www.youtube.com/watch?v=GAfVwMTqgMU"),
-    ("2026-11-04", "The Dice Tower", "US", "Flash Marathon — Tuesday Night Gaming", "23:11", "https://www.youtube.com/watch?v=_OPw4BBINkE"),
-]
+# Solo menciones confirmadas. yt = id de YouTube, para la miniatura que carga al hacer clic.
+VIDEOS = {
+    "merc": dict(date="2026-10-19", channel="Miss Merc007", country="JP", yt="FmSFwimRRfw", minute="",
+        title="Games that start with M! Mystery Chain, My Extreme Skatepark, and Music Nonsense"),
+    "nonsolopane": dict(date="2026-11-02", channel="non solo Pane", country="IT", yt="GAfVwMTqgMU", minute="20:45",
+        title="ESSEN SPIEL 2026: i giochi provati e il racconto della fiera"),
+    "dicetower": dict(date="2026-11-04", channel="The Dice Tower", country="US", yt="_OPw4BBINkE", minute="23:11",
+        public=False, title="Flash Marathon — Tuesday Night Gaming"),
+}
 
 BGG_SNAPSHOT = dict(date="2026-11-09", avg_es="5,85", avg_en="5.85", votes=26, comments=7)
 
@@ -646,100 +662,90 @@ def fmt_date(lang, iso):
     return f"{d} {MONTHS['en'][m - 1]} {y}"
 
 
+ITTEN = '<a href="https://itten-games.com/" target="_blank" rel="noopener noreferrer">itten</a>'
+
+
+def pub(d):
+    return {k: v for k, v in d.items() if v.get("public", True)}
+
+
+def video_gallery(lang):
+    t, minute = T[lang], PRESS_POST[lang]["video_minute"]
+    figs = []
+    for v in pub(VIDEOS).values():
+        cap = f"{v['channel']} · {COUNTRY[v['country']][lang]}"
+        if v["minute"]:
+            cap += f" · {minute} {v['minute']}" if minute else f" · {v['minute']}"
+        figs.append(f"""            <figure class="post-video">
+              <button class="yt" data-id="{v['yt']}" aria-label="{t['play_video']}: {esc(v['title'])}" style="background-image:url(https://i.ytimg.com/vi/{v['yt']}/hqdefault.jpg)"><span class="yt-play" aria-hidden="true"></span></button>
+              <figcaption class="post-meta">{esc(v['title'])}<br>{esc(cap)}</figcaption>
+            </figure>""")
+    return '          <div class="post-videos">\n' + "\n".join(figs) + "\n          </div>"
+
+
 PRESS_POST = {
     "es": dict(
-        title="My Extreme Skatepark en la prensa: el primer mes",
-        excerpt="Dónde ha aparecido en internet el juego que co-diseñé para itten: medios de siete países, videos de reseña y las primeras opiniones en BoardGameGeek.",
-        lead="El juego salió de la caja y se fue solo a recorrer el mundo. Esto es todo lo que ha aparecido en internet sobre <em>My Extreme Skatepark</em> en su primer mes.",
-        intro=[
-            "<em>My Extreme Skatepark</em> se presentó en SPIEL Essen 2026 y en el Game Market de otoño en Tokio. Desde entonces vengo siguiendo dónde aparece, y me pareció justo dejarlo ordenado en un solo lugar en vez de que quede disperso en capturas de pantalla.",
-            "Llevo el registro en una planilla que actualizo cada cierto tiempo. Esta entrada se genera desde ahí, así que va a ir creciendo sola.",
-        ],
-        press_intro="apariciones en medios de {countries} países, en {langs} idiomas: desde el anuncio de lanzamiento en Japón hasta las listas de novedades de Essen.",
-        video_intro="Canales que lo mostraron en mesa:",
+        title="My Extreme Skatepark en la prensa",
+        excerpt="Las notas, videos y reseñas que han salido sobre el juego que co-diseñé para itten, en su primer mes de vida.",
         video_minute="minuto",
-        bgg_text="En su ficha de BoardGameGeek el juego promedia <strong>{avg}</strong> con {votes} votos y {comments} comentarios. Las opiniones están divididas, que es más o menos lo que uno espera de un juego de destreza: hay quien lo encontró distinto a todo lo que había jugado en mucho tiempo, y hay quien sintió que el skate no le obedecía lo suficiente. Las dos reacciones me parecen información útil.",
-        close_h="¿Lo viste en otra parte?",
-        close="Si te topaste con el juego en una reseña, un video o una tienda que no esté en esta lista, escríbeme y lo agrego.",
+        lead="<em>My Extreme Skatepark</em>, el juego que co-diseñé con Naotaka Shimamoto para la editorial japonesa itten, se presentó en SPIEL Essen 2026 y en el Game Market de otoño en Tokio. Estas son las notas que han salido sobre él desde entonces.",
+        press_intro="apariciones en medios de {countries} países y {langs} idiomas.",
+        video_intro="Canales que lo mostraron en mesa:",
+        next_h="Lo que viene",
+        next_text="A mediados de noviembre llega a las tiendas japonesas. Es el primer juego mío publicado fuera de Chile.",
     ),
     "en": dict(
-        title="My Extreme Skatepark in the press: the first month",
-        excerpt="Where the game I co-designed for itten has turned up online: outlets from seven countries, review videos and the first opinions on BoardGameGeek.",
-        lead="The game left the box and went off to see the world on its own. Here is everything that has appeared online about <em>My Extreme Skatepark</em> in its first month.",
-        intro=[
-            "<em>My Extreme Skatepark</em> premiered at SPIEL Essen 2026 and at the autumn Game Market in Tokyo. I have been tracking where it shows up ever since, and it felt right to keep it in one place instead of scattered across screenshots.",
-            "I keep the record in a spreadsheet that I refresh every so often. This post is generated from it, so it will keep growing on its own.",
-        ],
-        press_intro="press appearances across {countries} countries, in {langs} languages: from the launch announcement in Japan to the Essen new-release lists.",
-        video_intro="Channels that put it on the table:",
+        title="My Extreme Skatepark in the press",
+        excerpt="The articles, videos and reviews published about the game I co-designed for itten, in its first month out in the world.",
         video_minute="at",
-        bgg_text="On its BoardGameGeek page the game averages <strong>{avg}</strong> from {votes} ratings and {comments} comments. Opinions are split, which is roughly what you expect from a dexterity game: some found it unlike anything they had played in a long time, others felt the skateboard did not obey them enough. Both reactions are useful information to me.",
-        close_h="Seen it somewhere else?",
-        close="If you came across the game in a review, a video or a shop that is not on this list, write to me and I will add it.",
+        lead="<em>My Extreme Skatepark</em>, the game I co-designed with Naotaka Shimamoto for the Japanese publisher itten, premiered at SPIEL Essen 2026 and at the autumn Game Market in Tokyo. These are the pieces published about it since then.",
+        press_intro="press appearances across {countries} countries and {langs} languages.",
+        video_intro="Channels that put it on the table:",
+        next_h="What comes next",
+        next_text="In mid-November it reaches Japanese shops. It is the first game of mine published outside Chile.",
     ),
     "ja": dict(
-        title="『My Extreme Skatepark』メディア掲載まとめ — 最初の1か月",
-        excerpt="itten から出版された共同デザイン作品が、ネット上でどのように紹介されたか。7か国のメディア、レビュー動画、BoardGameGeek での最初の評価まとめ。",
-        lead="箱から飛び出したゲームは、ひとりで世界を回りはじめました。『My Extreme Skatepark』の最初の1か月に、ネット上で紹介された記録をまとめます。",
-        intro=[
-            "『My Extreme Skatepark』は SPIEL Essen 2026 と、東京のゲームマーケット2026秋でお披露目されました。それ以来、どこで紹介されたかを追いかけています。スクリーンショットのまま散らばらせておくより、ひとつの場所にまとめておきたいと思いました。",
-            "記録はスプレッドシートで管理していて、定期的に更新しています。この記事はそこから自動生成されているので、これからも増えていきます。",
-        ],
-        press_intro="件のメディア掲載、{countries}か国・{langs}言語。日本での発売告知から、エッセンの新作リストまで。",
-        video_intro="実際にプレイして紹介してくれたチャンネル：",
+        title="『My Extreme Skatepark』メディア掲載",
+        excerpt="itten から出版された共同デザイン作品について、最初の1か月に掲載された記事・動画・レビューのまとめ。",
         video_minute="",
-        bgg_text="BoardGameGeek のページでは、{votes} 件の評価で平均 <strong>{avg}</strong>、コメントは {comments} 件です。評価は割れていますが、アクションゲームとしてはむしろ自然なことだと思います。「久しぶりに新しいと感じた」という声もあれば、「スケートボードが思うように動かなかった」という声もありました。どちらも私にとって貴重な情報です。",
-        close_h="ほかで見かけましたか？",
-        close="このリストにないレビュー・動画・ショップで本作を見かけたら、ぜひご連絡ください。追加します。",
+        lead="島本直尚さんと共同でデザインし、itten から出版された『My Extreme Skatepark』は、SPIEL Essen 2026 と、東京のゲームマーケット2026秋でお披露目されました。以降に掲載された記事をまとめます。",
+        press_intro="件のメディア掲載。{countries}か国・{langs}言語。",
+        video_intro="実際にプレイして紹介してくれたチャンネル：",
+        next_h="これから",
+        next_text="11月中旬、日本の店頭に並びます。チリの外で出版される、初めての自分の作品です。",
     ),
 }
 
 
 def press_post_body(lang):
     t, p = T[lang], PRESS_POST[lang]
-    countries = len({row[2] for row in PRESS})
-    langs = len({row[3] for row in PRESS})
-    press_rows = "\n".join(
-        f'            <li><a href="{u}" target="_blank" rel="noopener noreferrer">{esc(title)}</a>'
-        f' <span class="post-meta">{esc(outlet)} · {COUNTRY[c][lang]} · {fmt_date(lang, date)}</span></li>'
-        for date, outlet, c, _lg, title, u in PRESS
+    entries = pub(PRESS)
+    countries = len({e["country"] for e in entries.values()})
+    langs = len({e["lang"] for e in entries.values()})
+    rows = "\n".join(
+        f'            <li><a href="{e["url"]}" target="_blank" rel="noopener noreferrer">{esc(e["title"])}</a>'
+        f' <span class="post-meta">{esc(e["outlet"])} · {COUNTRY[e["country"]][lang]} · {fmt_date(lang, e["date"])}</span></li>'
+        for e in entries.values()
     )
-    video_rows = "\n".join(
-        f'            <li><a href="{u}" target="_blank" rel="noopener noreferrer">{esc(title)}</a>'
-        f' <span class="post-meta">{esc(channel)} · {COUNTRY[c][lang]}'
-        + (f" · {p['video_minute']} {minute}" if minute else "")
-        + f" · {fmt_date(lang, date)}</span></li>"
-        for date, channel, c, title, minute, u in VIDEOS
-    )
-    b = BGG_SNAPSHOT
-    bgg = p["bgg_text"].format(avg=b["avg_es"] if lang == "es" else b["avg_en"],
-                               votes=b["votes"], comments=b["comments"])
-    intro = "\n".join(f"          <p>{x}</p>" for x in p["intro"])
-    count_line = (f"{len(PRESS)}{p['press_intro']}" if lang == "ja"
-                  else f"{len(PRESS)} {p['press_intro']}").format(countries=countries, langs=langs)
+    count = (f"{len(entries)}{p['press_intro']}" if lang == "ja" else f"{len(entries)} {p['press_intro']}")
+    count = count.format(countries=countries, langs=langs)
     return f"""          <p class="lead">{p['lead']}</p>
-{intro}
           <h2>{t['press_section']}</h2>
-          <p>{count_line}</p>
+          <p>{count}</p>
           <ul class="post-list">
-{press_rows}
+{rows}
           </ul>
           <h2>{t['video_section']}</h2>
           <p>{p['video_intro']}</p>
-          <ul class="post-list">
-{video_rows}
-          </ul>
-          <h2>{t['bgg_section']}</h2>
-          <p>{bgg}</p>
-          <p><a class="link-arrow" href="https://boardgamegeek.com/boardgame/{GAME['my-extreme-skatepark']['bgg']}" target="_blank" rel="noopener noreferrer">{t['bgg']} →</a></p>
-          <h2>{p['close_h']}</h2>
-          <p>{p['close']}</p>
-          <p><a class="btn" href="mailto:{EMAIL}?subject=My%20Extreme%20Skatepark">{t['write_me']}</a></p>"""
+{video_gallery(lang)}
+          <h2>{p['next_h']}</h2>
+          <p>{p['next_text']}</p>"""
 
 
 POSTS = [
     dict(slug="my-extreme-skatepark-en-la-prensa", date="2026-11-09",
-         og_image="/images/mes-card.webp", text=PRESS_POST, body=press_post_body),
+         og_image="/images/mes.webp", hero="/images/mes.webp",
+         hero_alt="My Extreme Skatepark", text=PRESS_POST, body=press_post_body),
 ]
 
 
@@ -783,6 +789,8 @@ def blog_index(lang):
 def blog_post(lang, po):
     t, txt = T[lang], po["text"][lang]
     path = f"blog/{po['slug']}.html"
+    hero = (f'<figure class="post-figure"><img src="{po["hero"]}" alt="{esc(po.get("hero_alt", ""))}" loading="lazy"></figure>'
+            if po.get("hero") else "")
     jsonld = f"""  <script type="application/ld+json">
   {{"@context":"https://schema.org","@type":"BlogPosting",
     "headline":{json.dumps(txt['title'], ensure_ascii=False)},
@@ -804,6 +812,7 @@ def blog_post(lang, po):
     </section>
     <section class="section">
       <div class="wrap post-body">
+        {hero}
         <div class="prose">
 {po['body'](lang)}
         </div>

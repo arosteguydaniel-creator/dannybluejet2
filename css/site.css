@@ -199,3 +199,8 @@ a { color: var(--blue); }
 .btn-buy:hover { background: var(--blue-dark); }
 .shop-note { color: var(--muted); font-size: .9rem; margin-top: .7rem; max-width: 46ch; }
 .shop-cl { border-left: 3px solid var(--magenta); padding-left: .8rem; margin-top: 1.4rem; }
+.post-figure { margin: 0 0 2rem; }
+.post-figure img { width: 100%; border-radius: var(--radius); }
+.post-videos { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 1.2rem; margin: 1.6rem 0 2rem; }
+.post-video { margin: 0; }
+.post-video figcaption { margin-top: .45rem; }
