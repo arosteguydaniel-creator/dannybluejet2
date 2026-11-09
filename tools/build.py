@@ -216,8 +216,8 @@ PAGE_TITLES = {
 SHOP = dict(
     slug="comprar-batalla-de-coronas",
     game="batalla-de-coronas",
-    price_clp=None,          # ej. 14990 — sin precio, la página invita a consultar
-    flow_url="",             # ej. "https://www.flow.cl/app/web/pagarBtnPago.php?token=XXXX"
+    price_clp=15990,
+    flow_url="https://www.flow.cl/btn.php?token=j2f7f1cf63566b86d922acd646de9fc226651100",
     shipping="Despacho a todo Chile por Starken o Chilexpress, por pagar en destino. "
              "Retiro gratis en Osorno coordinando por correo.",
     stock=True,
