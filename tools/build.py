@@ -271,7 +271,7 @@ VIDEOS = {
     "merc": dict(date="2026-10-19", channel="Miss Merc007", country="JP", yt="FmSFwimRRfw", minute="",
         title="Games that start with M! Mystery Chain, My Extreme Skatepark, and Music Nonsense"),
     "nonsolopane": dict(date="2026-11-02", channel="non solo Pane", country="IT", yt="GAfVwMTqgMU", minute="20:45",
-        title="ESSEN SPIEL 2026: i giochi provati e il racconto della fiera"),
+        public=False, title="ESSEN SPIEL 2026: i giochi provati e il racconto della fiera"),
     "dicetower": dict(date="2026-11-04", channel="The Dice Tower", country="US", yt="_OPw4BBINkE", minute="23:11",
         public=False, title="Flash Marathon — Tuesday Night Gaming"),
 }
@@ -690,9 +690,7 @@ PRESS_POST = {
         video_minute="minuto",
         lead="<em>My Extreme Skatepark</em>, el juego que co-diseñé con Naotaka Shimamoto para la editorial japonesa itten, se presentó en SPIEL Essen 2026 y en el Game Market de otoño en Tokio. Estas son las notas que han salido sobre él desde entonces.",
         press_intro="apariciones en medios de {countries} países y {langs} idiomas.",
-        video_intro="Canales que lo mostraron en mesa:",
-        next_h="Lo que viene",
-        next_text="A mediados de noviembre llega a las tiendas japonesas. Es el primer juego mío publicado fuera de Chile.",
+        video_intro=("Canales que lo mostraron en mesa:", "Un canal que lo mostró en mesa:"),
     ),
     "en": dict(
         title="My Extreme Skatepark in the press",
@@ -700,9 +698,7 @@ PRESS_POST = {
         video_minute="at",
         lead="<em>My Extreme Skatepark</em>, the game I co-designed with Naotaka Shimamoto for the Japanese publisher itten, premiered at SPIEL Essen 2026 and at the autumn Game Market in Tokyo. These are the pieces published about it since then.",
         press_intro="press appearances across {countries} countries and {langs} languages.",
-        video_intro="Channels that put it on the table:",
-        next_h="What comes next",
-        next_text="In mid-November it reaches Japanese shops. It is the first game of mine published outside Chile.",
+        video_intro=("Channels that put it on the table:", "A channel that put it on the table:"),
     ),
     "ja": dict(
         title="『My Extreme Skatepark』メディア掲載",
@@ -710,9 +706,7 @@ PRESS_POST = {
         video_minute="",
         lead="島本直尚さんと共同でデザインし、itten から出版された『My Extreme Skatepark』は、SPIEL Essen 2026 と、東京のゲームマーケット2026秋でお披露目されました。以降に掲載された記事をまとめます。",
         press_intro="件のメディア掲載。{countries}か国・{langs}言語。",
-        video_intro="実際にプレイして紹介してくれたチャンネル：",
-        next_h="これから",
-        next_text="11月中旬、日本の店頭に並びます。チリの外で出版される、初めての自分の作品です。",
+        video_intro=("実際にプレイして紹介してくれたチャンネル：", "実際にプレイして紹介してくれたチャンネル："),
     ),
 }
 
@@ -736,10 +730,8 @@ def press_post_body(lang):
 {rows}
           </ul>
           <h2>{t['video_section']}</h2>
-          <p>{p['video_intro']}</p>
-{video_gallery(lang)}
-          <h2>{p['next_h']}</h2>
-          <p>{p['next_text']}</p>"""
+          <p>{p['video_intro'][1] if len(pub(VIDEOS)) == 1 else p['video_intro'][0]}</p>
+{video_gallery(lang)}"""
 
 
 POSTS = [
