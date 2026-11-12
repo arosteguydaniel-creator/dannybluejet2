@@ -18,9 +18,9 @@ SOCIAL = [
 ]
 
 NAV = {
-    "es": [("index.html", "Inicio"), ("sobre-mi.html", "Sobre mí"), ("juegos/", "Juegos"), ("blog/", "Blog"), ("musica.html", "Música"), ("contacto.html", "Contacto")],
-    "en": [("index.html", "Home"), ("sobre-mi.html", "About"), ("juegos/", "Games"), ("blog/", "Blog"), ("musica.html", "Music"), ("contacto.html", "Contact")],
-    "ja": [("index.html", "ホーム"), ("sobre-mi.html", "プロフィール"), ("juegos/", "ゲーム"), ("blog/", "ブログ"), ("musica.html", "音楽"), ("contacto.html", "お問い合わせ")],
+    "es": [("index.html", "Inicio"), ("sobre-mi.html", "Sobre mí"), ("juegos/", "Juegos"), ("musica.html", "Música"), ("contacto.html", "Contacto")],
+    "en": [("index.html", "Home"), ("sobre-mi.html", "About"), ("juegos/", "Games"), ("musica.html", "Music"), ("contacto.html", "Contact")],
+    "ja": [("index.html", "ホーム"), ("sobre-mi.html", "プロフィール"), ("juegos/", "ゲーム"), ("musica.html", "音楽"), ("contacto.html", "お問い合わせ")],
 }
 
 T = {
@@ -1040,9 +1040,6 @@ def main():
         write(pre + "juegos/index.html", games_index(lang))
         for g in GAMES:
             write(pre + f"juegos/{g['slug']}.html", game_page(lang, g))
-        write(pre + "blog/index.html", blog_index(lang))
-        for po in POSTS:
-            write(pre + f"blog/{po['slug']}.html", blog_post(lang, po))
         write(pre + "la-vaca-del-tablero.html", vaca(lang))
         write(pre + "musica.html", music(lang))
         write(pre + "contacto.html", contact(lang))
@@ -1057,14 +1054,16 @@ def main():
             redirects["products/" + f] = "/juegos/batalla-de-coronas.html" if f == "batallas.html" else "/juegos/"
     for lang in LANGS:  # the designer diary was taken off the site
         redirects[url(lang, "juegos/my-extreme-skatepark-diario.html").lstrip("/")] = url(lang, "juegos/my-extreme-skatepark.html")
+    for lang in LANGS:  # the blog was taken off the site
+        redirects[PREFIX[lang].lstrip("/") + "blog/index.html"] = url(lang, "index.html")
+        for po in POSTS:
+            redirects[url(lang, f"blog/{po['slug']}.html").lstrip("/")] = url(lang, "juegos/my-extreme-skatepark.html")
     for old, new in redirects.items():
         write(old, redirect(new))
 
     pages = ["index.html", "sobre-mi.html", "juegos/index.html"] + [f"juegos/{g['slug']}.html" for g in GAMES] + \
-            ["blog/index.html"] + [f"blog/{po['slug']}.html" for po in POSTS] + \
             ["la-vaca-del-tablero.html", "musica.html", "contacto.html"]
-    lastmod = {f"blog/{po['slug']}.html": po["date"] for po in POSTS}
-    lastmod["blog/index.html"] = max(po["date"] for po in POSTS)
+    lastmod = {}
     entries = []
     for pth in pages:
         for lang in LANGS:
