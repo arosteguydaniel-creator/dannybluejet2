@@ -21,8 +21,6 @@ juegos/my-extreme-skatepark.html ★ destacado
 juegos/armaduras-musicales.html
 juegos/batalla-de-coronas.html
 juegos/de-cero-a-ceo.html
-blog/index.html                  Blog
-blog/<slug>.html                 Entradas
 la-vaca-del-tablero.html         Editorial
 musica.html                      Música
 contacto.html                    Contacto
@@ -30,12 +28,11 @@ contacto.html                    Contacto
 
 `comprar-batalla-de-coronas.html` (la página de venta) está solo en español: las ventas son solo dentro de Chile.
 
-## Blog y radar de prensa
+## Radar de prensa
 
-Las menciones de My Extreme Skatepark viven en `tools/build.py`, en las listas `PRESS`, `VIDEOS` y
-`BGG_SNAPSHOT`, con el mismo orden de columnas que la planilla de Drive *Prensa My Extreme Skatepark*.
-Al cerrar un barrido nuevo, agrega las filas ahí y vuelve a correr el build: la entrada del blog
-se regenera sola en los tres idiomas, con los conteos (apariciones, países, idiomas) recalculados.
+El blog se sacó del sitio el 12-11-2026; sus URLs (`/blog/`, `/en/blog/`, `/ja/blog/` y la entrada de prensa)
+redirigen al inicio y a la página de My Extreme Skatepark. Las listas `PRESS`, `VIDEOS` y `BGG_SNAPSHOT` siguen en
+`tools/build.py` como registro del radar, por si el blog vuelve.
 
 ## Venta
 
